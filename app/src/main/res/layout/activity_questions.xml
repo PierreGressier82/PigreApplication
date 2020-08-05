@@ -1,0 +1,85 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:context="com.pigredorou.topquizz.controleur.QuestionsActivity">
+
+    <TextView
+        android:id="@+id/activity_score_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray"
+        android:background="@color/noir"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Score : x/x"/>
+
+    <TextView
+        android:id="@+id/activity_game_question_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Question ?"/>
+
+    <Button
+        android:id="@+id/activity_game_answer1_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:text="Reponse 1"/>
+
+    <Button
+        android:id="@+id/activity_game_answer2_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:text="Reponse 2"/>
+
+    <Button
+        android:id="@+id/activity_game_answer3_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:text="Reponse 3"/>
+
+    <Button
+        android:id="@+id/activity_game_answer4_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:text="Reponse 4"/>
+
+</LinearLayout>
