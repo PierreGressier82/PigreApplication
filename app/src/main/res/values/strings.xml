@@ -1,14 +1,16 @@
 <resources>
-    <string name="app_name">TopQuizz</string>
-    <string name="title_activity_comptes">ComptesActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_jeux_de_societe">JeuxDeSocieteActivity</string>
+    <string name="nombre_de_joueurs">Nombre de joueurs</string>
+    <string name="age_mini">Age mini</string>
+    <string name="duree">Durée</string>
+    <string name="regles_pdf">Règles PDF</string>
+    <string name="titre_du_jeu">Titre du jeu</string>
+    <string name="regles_simplifiees">Règles simplifiées</string>
+    <string name="detail_des_regles_simplifiees">detail des règles simplifiées</string>
+    <string name="jeux_de_societes">JEUX DE SOCIETES</string>
+    <string name="comptes">Comptes</string>
+    <string name="quizz">QUIZZ</string>
+    <string name="hello_pgr">Hello PGR</string>
+    <string name="todo">TODO</string>
+    <string name="image_jeu">Image jeu</string>
 </resources>

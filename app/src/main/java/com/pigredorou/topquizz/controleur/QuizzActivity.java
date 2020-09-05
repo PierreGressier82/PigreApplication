@@ -30,7 +30,7 @@ public class QuizzActivity extends AppCompatActivity {
     private Button mQuitButton;
     private Utilisateur mUtilisateur;
     private NumberPicker mNumberPickerTest;
-    public static final int GAME_ACTIVITY_REQUEST_CODE=14;
+    public static final int QUIZZ_ACTIVITY_REQUEST_CODE=13;
     private SharedPreferences mPreferences;
     public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";
     public static final String PREF_KEY_PRENOM = "PREF_KEY_PRENOM";
@@ -41,7 +41,7 @@ public class QuizzActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (GAME_ACTIVITY_REQUEST_CODE == requestCode && RESULT_OK == resultCode) {
+        if (QUIZZ_ACTIVITY_REQUEST_CODE == requestCode && RESULT_OK == resultCode) {
             int score = data.getIntExtra(QuestionsActivity.BUNDLE_EXTRA_SCORE, 0);
 
             mPreferences.edit().putInt(PREF_KEY_SCORE, score).apply();
@@ -77,6 +77,7 @@ public class QuizzActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
 
+        getSupportActionBar().hide();
         System.out.println("QuizzActivity::onCreate()");
 
         mUtilisateur = new Utilisateur();
@@ -128,7 +129,7 @@ public class QuizzActivity extends AppCompatActivity {
                 Intent gameActivity = new Intent(QuizzActivity.this, QuestionsActivity.class);
                 //startActivity(gameActivity);
                 gameActivity.putExtra(PREF_KEY_NOMBRE_QUESTION, mNumberPickerTest.getValue());
-                startActivityForResult(gameActivity, GAME_ACTIVITY_REQUEST_CODE);
+                startActivityForResult(gameActivity, QUIZZ_ACTIVITY_REQUEST_CODE);
 
             }
         });

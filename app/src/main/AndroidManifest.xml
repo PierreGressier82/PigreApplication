@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pigredorou.topquizz">
-
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="Pigre Application"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".controleur.JeuxDeSocieteActivity"
+            android:label="@string/title_activity_jeux_de_societe"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/FullscreenTheme" />
         <activity android:name=".controleur.QuestionsActivity" />
         <activity android:name=".controleur.QuizzActivity" />
+        <activity android:name=".controleur.TresFute" />
         <activity android:name=".controleur.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,5 +22,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

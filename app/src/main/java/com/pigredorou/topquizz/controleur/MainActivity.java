@@ -21,9 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mGreetingText;
     private Button mQuizzButton;
     private Button mComptesButton;
+    private Button mGameButton;
     private Button mTodoButton;
     private Utilisateur mUtilisateur;
+    public static final int QUIZZ_ACTIVITY_REQUEST_CODE=13;
     public static final int GAME_ACTIVITY_REQUEST_CODE=14;
+    public static final int TODO_REQUEST_CODE=1414;
     private SharedPreferences mPreferences;
     public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";
     public static final String PREF_KEY_PRENOM = "PREF_KEY_PRENOM";
@@ -42,20 +45,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGreetingText = (TextView) findViewById(R.id.activity_main_greeting_txt);
         mQuizzButton = (Button) findViewById(R.id.activity_main_quizz_button);
         mComptesButton = (Button) findViewById(R.id.activity_main_comptes_button);
-        mTodoButton = (Button) findViewById(R.id.activity_main_todo_button);
+        mGameButton = (Button) findViewById(R.id.activity_main_games_button);
+        mTodoButton = (Button) findViewById(R.id.activity_todo_button);
 
         mQuizzButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Utilisateur clique sur le bouton
                 Intent quizzActivity = new Intent(MainActivity.this, QuizzActivity.class);
-                startActivityForResult(quizzActivity, GAME_ACTIVITY_REQUEST_CODE);
+                startActivityForResult(quizzActivity, QUIZZ_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+        mGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Utilisateur clique sur le bouton
+                Intent jeuxDeSocieteActivity = new Intent(MainActivity.this, JeuxDeSocieteActivity.class);
+                startActivityForResult(jeuxDeSocieteActivity, GAME_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+        mTodoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Utilisateur clique sur le bouton
+                Intent todoActivity = new Intent(MainActivity.this, TresFute.class);
+                startActivityForResult(todoActivity, TODO_REQUEST_CODE);
             }
         });
 
         // Use the activity listener for all this buttons.
         mComptesButton.setOnClickListener(this);
-        mTodoButton.setOnClickListener(this);
+        //mTodoButton.setOnClickListener(this);
     }
 
     @Override
