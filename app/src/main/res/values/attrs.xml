@@ -8,5 +8,7 @@
         <attr name="metaButtonBarStyle" format="reference" />
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
-
+    <declare-styleable name="ImageViewTresFute">
+        <attr name="ImageViewTresFute" format="string" />
+    </declare-styleable>
 </resources>

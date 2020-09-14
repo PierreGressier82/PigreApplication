@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         System.out.println("MainActivity::onCreate()");
 
+        //Masque la barre de titre l'application
+        //getSupportActionBar().hide();
+
+        // Passe l'aplli en plein écran et cache la barre de status.
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         mUtilisateur = new Utilisateur();
         mPreferences = getPreferences(MODE_PRIVATE);
 

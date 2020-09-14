@@ -1,13 +1,10 @@
 package com.pigredorou.topquizz.controleur;
 
-import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -57,12 +54,12 @@ public class JeuxDeSocieteActivity extends AppCompatActivity {
         mRelativeLayoutImageTitre = (RelativeLayout) findViewById(R.id.relative_layout_image_titre);
         mRelativeLayoutVideo = (RelativeLayout) findViewById(R.id.relative_layout_video);
 
-        mImage_Jeu.setImageResource(R.drawable.icone_jeu);
-        mImage_NombreJoueurs.setImageResource(R.drawable.icone_nb_pers);
-        mImage_AgeMini.setImageResource(R.drawable.icone_age);
-        mImage_Duree.setImageResource(R.drawable.icone_duree);
-        mImage_ReglePDF.setImageResource(R.drawable.icone_pdf);
-        mImage_VideoRegles.setImageResource(R.drawable.ludovox);
+        mImage_Jeu.setImageResource(R.drawable.jeux_icone_jeu);
+        mImage_NombreJoueurs.setImageResource(R.drawable.jeux_icone_nb_pers);
+        mImage_AgeMini.setImageResource(R.drawable.jeux_icone_age);
+        mImage_Duree.setImageResource(R.drawable.jeux_icone_duree);
+        mImage_ReglePDF.setImageResource(R.drawable.jeux_icone_pdf);
+        mImage_VideoRegles.setImageResource(R.drawable.jeux_ludovox);
 
         // Lancement de la vidéo
         mImage_VideoRegles.setOnClickListener(new View.OnClickListener() {

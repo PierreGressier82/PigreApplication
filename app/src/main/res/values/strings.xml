@@ -12,5 +12,7 @@
     <string name="quizz">QUIZZ</string>
     <string name="hello_pgr">Hello PGR</string>
     <string name="todo">TODO</string>
+    <string name="tres_fute">Très futé</string>
     <string name="image_jeu">Image jeu</string>
+    <string name="Score">Score : </string>
 </resources>

@@ -5,6 +5,12 @@
     <color name="colorAccent">#FF0000</color>
     <color name="blanc">#FFFFFF</color>
     <color name="noir">#000000</color>
-
+    <color name="jaune">#FFD700</color>
+    <color name="jauneDoree">#DAA520</color>
+    <color name="bleu">#4169E1</color>
+    <color name="vert">#16B84E</color>
+    <color name="orange">#FF4500</color>
+    <color name="rouge">#B40404</color>
+    <color name="violet">#660099</color>
     <color name="black_overlay">#66000000</color>
 </resources>
