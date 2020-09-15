@@ -21,4 +21,6 @@
     <string name="d_choisi_au_second_tour">Dé choisi au second tour</string>
     <string name="d_choisi_au_troisi_me_tour">Dé choisi au troisième tour</string>
     <string name="d_lancer">Dé à lancer</string>
+    <string name="mode_feuille_de_score">Mode feuille de score</string>
+    <string name="mode_jeu_solo">Mode jeu solo</string>
 </resources>

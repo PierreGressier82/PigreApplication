@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#333333"
     android:orientation="vertical"
-    tools:context=".controleur.TresFute">
+    tools:context=".controleur.TresFuteSolo">
 
     <LinearLayout
         android:layout_width="match_parent"

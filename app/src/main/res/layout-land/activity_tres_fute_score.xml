@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#333333"
     android:orientation="horizontal"
-    tools:context=".controleur.TresFute"
+    tools:context=".controleur.TresFuteSolo"
     android:baselineAligned="false">
 
     <RelativeLayout
@@ -1003,102 +1003,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_jaune"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/jaune"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_bleu"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/bleu"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_vert"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/vert"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_orange"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/orange"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_violet"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/violet"
-                            android:textSize="20sp"/>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <TextView
-                            android:id="@+id/de_blanc"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/blanc"
-                            android:textSize="20sp"/>
                     </RelativeLayout>
                 </LinearLayout>
 
