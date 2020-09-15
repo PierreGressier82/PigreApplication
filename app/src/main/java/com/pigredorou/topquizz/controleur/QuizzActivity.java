@@ -83,12 +83,12 @@ public class QuizzActivity extends AppCompatActivity {
         mUtilisateur = new Utilisateur();
         mPreferences = getPreferences(MODE_PRIVATE);
 
-        mGreetingText = (TextView) findViewById(R.id.activity_quizz_greeting_txt);
-        mNombreQuestion = (TextView) findViewById(R.id.activity_quizz_texte_nombre_question);
-        mNameInput = (EditText) findViewById(R.id.activity_quizz_name_input);
-        mPlayButton = (Button) findViewById(R.id.activity_quizz_play_button);
-        mQuitButton = (Button) findViewById(R.id.activity_quizz_quit_button);
-        mNumberPickerTest = (NumberPicker) findViewById(R.id.activity_quizz_choix_nombre_question);
+        mGreetingText = findViewById(R.id.activity_quizz_greeting_txt);
+        mNombreQuestion = findViewById(R.id.activity_quizz_texte_nombre_question);
+        mNameInput = findViewById(R.id.activity_quizz_name_input);
+        mPlayButton = findViewById(R.id.activity_quizz_play_button);
+        mQuitButton = findViewById(R.id.activity_quizz_quit_button);
+        mNumberPickerTest = findViewById(R.id.activity_quizz_choix_nombre_question);
 
         mNumberPickerTest.setTextColor(Color.parseColor("#FFFFFF"));
         mNumberPickerTest.setMinValue(mNombreMinQuestion);

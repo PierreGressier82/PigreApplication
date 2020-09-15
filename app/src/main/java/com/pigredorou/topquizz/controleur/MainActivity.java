@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mUtilisateur = new Utilisateur();
         mPreferences = getPreferences(MODE_PRIVATE);
 
-        mGreetingText = (TextView) findViewById(R.id.activity_main_greeting_txt);
-        mQuizzButton = (Button) findViewById(R.id.activity_main_quizz_button);
-        mComptesButton = (Button) findViewById(R.id.activity_main_comptes_button);
-        mGameButton = (Button) findViewById(R.id.activity_main_games_button);
-        mTodoButton = (Button) findViewById(R.id.activity_todo_button);
+        mGreetingText = findViewById(R.id.activity_main_greeting_txt);
+        mQuizzButton = findViewById(R.id.activity_main_quizz_button);
+        mComptesButton = findViewById(R.id.activity_main_comptes_button);
+        mGameButton = findViewById(R.id.activity_main_games_button);
+        mTodoButton = findViewById(R.id.activity_todo_button);
 
         mQuizzButton.setOnClickListener(new View.OnClickListener() {
             @Override

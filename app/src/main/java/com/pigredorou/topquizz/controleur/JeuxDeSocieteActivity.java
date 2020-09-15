@@ -38,21 +38,21 @@ public class JeuxDeSocieteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_jeux_de_societe);
         getSupportActionBar().hide();
 
-        mImage_Jeu = (ImageView) findViewById(R.id.image_description_jeu);
-        mImage_NombreJoueurs = (ImageView) findViewById(R.id.image_nombre_joueurs);
-        mImage_AgeMini = (ImageView) findViewById(R.id.image_age_joueur);
-        mImage_Duree = (ImageView) findViewById(R.id.image_duree);
-        mImage_ReglePDF = (ImageView) findViewById(R.id.image_regle_PDF);
-        mText_TitreJeu = (TextView) findViewById(R.id.text_titre_du_jeu);
-        mText_NombreJoueurs = (TextView) findViewById(R.id.text_nombre_joueur);
-        mText_AgeMini = (TextView) findViewById(R.id.text_age_joueur);
-        mText_Duree = (TextView) findViewById(R.id.text_duree);
-        mText_ReglePDF = (TextView) findViewById(R.id.text_regles_pdf);
-        mImage_VideoRegles = (ImageView) findViewById(R.id.video_regle_ludovox);
-        mText_RegleSimplifieesTitre = (TextView) findViewById(R.id.text_titre_regles_simplifiees);
-        mText_RegleSimplifieesDetail = (TextView) findViewById(R.id.text_detail_regles_simplifiees);
-        mRelativeLayoutImageTitre = (RelativeLayout) findViewById(R.id.relative_layout_image_titre);
-        mRelativeLayoutVideo = (RelativeLayout) findViewById(R.id.relative_layout_video);
+        mImage_Jeu = findViewById(R.id.image_description_jeu);
+        mImage_NombreJoueurs = findViewById(R.id.image_nombre_joueurs);
+        mImage_AgeMini = findViewById(R.id.image_age_joueur);
+        mImage_Duree = findViewById(R.id.image_duree);
+        mImage_ReglePDF = findViewById(R.id.image_regle_PDF);
+        mText_TitreJeu = findViewById(R.id.text_titre_du_jeu);
+        mText_NombreJoueurs = findViewById(R.id.text_nombre_joueur);
+        mText_AgeMini = findViewById(R.id.text_age_joueur);
+        mText_Duree = findViewById(R.id.text_duree);
+        mText_ReglePDF = findViewById(R.id.text_regles_pdf);
+        mImage_VideoRegles = findViewById(R.id.video_regle_ludovox);
+        mText_RegleSimplifieesTitre = findViewById(R.id.text_titre_regles_simplifiees);
+        mText_RegleSimplifieesDetail = findViewById(R.id.text_detail_regles_simplifiees);
+        mRelativeLayoutImageTitre = findViewById(R.id.relative_layout_image_titre);
+        mRelativeLayoutVideo = findViewById(R.id.relative_layout_video);
 
         mImage_Jeu.setImageResource(R.drawable.jeux_icone_jeu);
         mImage_NombreJoueurs.setImageResource(R.drawable.jeux_icone_nb_pers);

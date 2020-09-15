@@ -15,4 +15,10 @@
     <string name="tres_fute">Très futé</string>
     <string name="image_jeu">Image jeu</string>
     <string name="Score">Score : </string>
+    <string name="zero">0</string>
+    <string name="score_0">Score : 0</string>
+    <string name="d_choisi_au_premier_tour">Dé choisi au premier tour</string>
+    <string name="d_choisi_au_second_tour">Dé choisi au second tour</string>
+    <string name="d_choisi_au_troisi_me_tour">Dé choisi au troisième tour</string>
+    <string name="d_lancer">Dé à lancer</string>
 </resources>

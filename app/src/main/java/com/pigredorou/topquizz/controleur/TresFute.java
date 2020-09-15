@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.pigredorou.topquizz.R;
@@ -21,45 +20,47 @@ import static com.pigredorou.topquizz.modele.ImageViewTresFute.JAUNE;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.ORANGE;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.VERT;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.VIOLET;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauOrange;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauVert;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauViolet;
 
 public class TresFute extends AppCompatActivity implements View.OnClickListener
 {
-    //private static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
-    //private static int[][] tableauBleu = {{0,0,0,0},{0,2,3,4},{5,6,7,8},{9,10,11,12}};
-    //private static int[] tableauVert = {0,1,2,3,4,5,1,2,3,4,5,6};
-    //private static int[] tableauOrange = {0,0,0,0,2,0,0,2,0,2,0,3};
-    //private static int[] tableauViolet = {0,0,0,0,0,0,0,0,0,0,0,0};
+    //public static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
+    //public static int[][] tableauBleu = {{1,1,1,1},{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+    //public static int[] tableauVert = {-1,1,2,3,4,5,1,2,3,4,5,6};
+    //public static int[] tableauOrange = {-1,0,0,0,0,0,0,0,0,0,0,0};
+    //public static int[] tableauViolet = {-1,0,0,0,0,0,0,0,0,0,0,0};
 
     private int[][] tableauClickJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
     private static int[] tableauScoreColonneJaune = {10,14,16,20};
     private int[][] tableauClickBleu = {{1,1,1,1},{1,2,3,4},{5,6,7,8},{9,10,11,12}};
     private static int[] tableauScoreColonneBleu = {0,1,2,4,7,11,16,22,29,37,46,56};
-    private int[] tableauClickVert = {-1,1,2,3,4,5,1,2,3,4,5,6};
+    private int[] tableauClickVert = tableauVert.clone();
     private static int[] tableauScoreColonneVert = {0,1,3,6,10,15,21,28,36,45,55,66};
-    private int[] tableauClickOrange = {-1,0,0,0,0,0,0,0,0,0,0,0};
-    private int[] tableauClickViolet = {0,0,0,0,0,0,0,0,0,0,0,0};
+    private int[] tableauClickOrange = tableauOrange.clone();
+    private int[] tableauClickViolet = tableauViolet.clone();
 
     // Bonus
     private ImageView imageJauneLigne4Case5;
     private ImageView imageBleuLigne4Case5;
 
-    TextView mscoreJaune;
-    TextView mscoreBleu;
-    TextView mscoreVert;
-    TextView mscoreOrange;
-    TextView mscoreViolet;
-    TextView mscoreRouge;
-    TextView mscoreTotal;
+    private TextView mscoreJaune;
+    private TextView mscoreBleu;
+    private TextView mscoreVert;
+    private TextView mscoreOrange;
+    private TextView mscoreViolet;
+    private TextView mscoreRouge;
+    private TextView mscoreTotal;
+
+    private TextView mDeJaune;
+    private TextView mDeBleu;
+    private TextView mDeVert;
+    private TextView mDeOrange;
+    private TextView mDeViolet;
+    private TextView mDeBlanc;
 
     public TresFute() {
-    }
-
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        //System.out.println("TresFute::onPostCreate()");
-
     }
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -71,10 +72,10 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
         // Masque le bar de titre de l'activité
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        // Passe l'aplli en plein écran et cache la barre de status.
+        // Passe l'appli en plein écran et cache la barre de status.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        // Lancement en mode paysage
+        // Lancement forcé en mode paysage
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         setContentView(R.layout.activity_tres_fute);
@@ -88,6 +89,17 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
         mscoreViolet = findViewById(R.id.score_violet);
         mscoreRouge = findViewById(R.id.score_rouge);
         mscoreTotal = findViewById(R.id.score_total);
+
+        // DES
+        mDeJaune = findViewById(R.id.de_jaune);
+        mDeBleu = findViewById(R.id.de_bleu);
+        mDeVert = findViewById(R.id.de_vert);
+        mDeOrange = findViewById(R.id.de_orange);
+        mDeViolet = findViewById(R.id.de_violet);
+        mDeBlanc = findViewById(R.id.de_blanc);
+
+        mDeJaune.setOnClickListener(this);
+        lance_des();
 
         // Definition des couleurs
         setTableauJaune();
@@ -123,6 +135,7 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
         //ImageView imageJauneLigne5Case3 = findViewById(R.id.ligne5JauneCase3);
         //ImageView imageJauneLigne5Case4 = findViewById(R.id.ligne5JauneCase4);
 
+        // Image masqué du Renard
         imageJauneLigne4Case5 = findViewById(R.id.ligne4JauneCase5);
         imageJauneLigne4Case5.setImageResource(R.drawable.tres_fute_loup_rouge);
         imageJauneLigne4Case5.setVisibility(View.INVISIBLE);
@@ -425,6 +438,8 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
             ImageViewTresFute imageClick = findViewById(v.getId());
             colonne = imageClick.getColonne();
 
+            //System.out.println("Colonne "+ colonne);
+
             switch (imageClick.getCouleur()) {
                 case JAUNE:
                     imageClick.onClick(0);
@@ -436,7 +451,10 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
                     break;
                 case VERT:
                     valeurColonnePrec=tableauClickVert[colonne-1];
-                    valeurColonneSuiv=tableauClickVert[colonne+1];
+                    if (colonne < (tableauClickVert.length-1))
+                        valeurColonneSuiv=tableauClickVert[colonne+1];
+                    else
+                        valeurColonneSuiv=0;
 
                     if (isClickPossibleCroix(colonne, valeurColonnePrec, valeurColonneSuiv) == 1) {
                         imageClick.onClick(0);
@@ -445,7 +463,10 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
                     break;
                 case ORANGE:
                     valeurColonnePrec=tableauClickOrange[colonne-1];
-                    valeurColonneSuiv=tableauClickOrange[colonne+1];
+                    if (colonne < (tableauClickOrange.length-1))
+                        valeurColonneSuiv=tableauClickOrange[colonne+1];
+                    else
+                        valeurColonneSuiv=0;
 
                     if (isClickPossibleChiffres(colonne, valeurColonnePrec, valeurColonneSuiv) == 1) {
                         imageClick.onClick(0);
@@ -454,21 +475,29 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
                     break;
                 case VIOLET:
                     valeurColonnePrec=tableauClickViolet[colonne-1];
-                    valeurColonneSuiv=tableauClickViolet[colonne+1];
+                    if (colonne < (tableauClickViolet.length-1))
+                        valeurColonneSuiv=tableauClickViolet[colonne+1];
+                    else
+                        valeurColonneSuiv=0;
 
                     if (isClickPossibleChiffres(colonne, valeurColonnePrec, valeurColonneSuiv) == 1) {
                         int modulo6=1;
-                        if (tableauClickViolet[colonne] == 0) // Ajout uniquement si case vide
-                            modulo6 = (valeurColonnePrec+1)%6;
+                        if (tableauClickViolet[colonne] == 0 && tableauClickViolet[colonne-1] != 6) // Ajout uniquement si case vide
+                            modulo6 = (valeurColonnePrec+1)%7;
+                        //System.out.println("MODULO "+modulo6);
                         imageClick.onClick(modulo6);
                         tableauClickViolet[imageClick.getColonne()] = imageClick.getValeur();
                     }
                     break;
             }
+            calcul_score_total();
         }
 
-        calcul_score_total();
-   }
+        if (v.getClass().toString().endsWith("TextView"))
+            lance_des();
+
+
+    }
 
    private int isClickPossibleCroix(int colonne, int valeurColonnePrec, int valeurColonneSuiv)
    {
@@ -529,7 +558,7 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
                     break;
                 }
             }
-            System.out.println( " ");
+            //System.out.println( " ");
 
             if (colonneOK == 1) {
                 score += tableauScoreColonneJaune[index1];
@@ -675,5 +704,30 @@ public class TresFute extends AppCompatActivity implements View.OnClickListener
 
         texteScore = getString(R.string.Score) + " " + score;
         mscoreTotal.setText(texteScore);
+    }
+
+    private void lance_des()
+    {
+        System.out.println("DEBUT LANCE_DES");
+
+        mDeJaune.setText(String.valueOf(lance_de()));
+        mDeBleu.setText(String.valueOf(lance_de()));
+        mDeVert.setText(String.valueOf(lance_de()));
+        mDeOrange.setText(String.valueOf(lance_de()));
+        mDeViolet.setText(String.valueOf(lance_de()));
+        mDeBlanc.setText(String.valueOf(lance_de()));
+
+        System.out.println("FIN LANCE_DES");
+    }
+
+    private int lance_de()
+    {
+        int nbAleatoire;
+        // génération d'un entier >= 1 et <= 6
+        nbAleatoire = (int)(Math.random() * 6 ) +1;
+
+        System.out.println("Resulat DE : "+ nbAleatoire);
+
+        return nbAleatoire;
     }
 }

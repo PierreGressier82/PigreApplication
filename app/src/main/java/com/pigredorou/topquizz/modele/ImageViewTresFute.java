@@ -2,18 +2,17 @@ package com.pigredorou.topquizz.modele;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 
 import com.pigredorou.topquizz.R;
 
 public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageView //implements View.OnClickListener
 {
     // Tableau avec les valeurs par défaut des cases
-    private static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
-    private static int[][] tableauBleu = {{0,0,0,0},{0,2,3,4},{5,6,7,8},{9,10,11,12}};
-    private static int[] tableauVert = {0,1,2,3,4,5,1,2,3,4,5,6};
-    private static int[] tableauOrange = {0,0,0,0,0,0,0,0,0,0,0,0};
-    private static int[] tableauViolet = {0,0,0,0,0,0,0,0,0,0,0,0};
+    public static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
+    public static int[][] tableauBleu = {{1,1,1,1},{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+    public static int[] tableauVert = {-1,1,2,3,4,5,1,2,3,4,5,6};
+    public static int[] tableauOrange = {-1,0,0,0,0,0,0,0,0,0,0,0};
+    public static int[] tableauViolet = {0,0,0,0,0,0,0,0,0,0,0,0};
 
     private int mligne = -1;
     private int mcolonne = -1;
@@ -120,15 +119,10 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
                     this.setImageResource(R.drawable.tres_fute_1);
                 break;
             case 2:
-                switch (getCouleur())
-                {
-                    case VERT :
-                        this.setImageResource(R.drawable.tres_fute_2_vert);
-                        break;
-                    default:
-                        this.setImageResource(R.drawable.tres_fute_2);
-                        break;
-                }
+                if (getCouleur() == VERT)
+                    this.setImageResource(R.drawable.tres_fute_2_vert);
+                else
+                    this.setImageResource(R.drawable.tres_fute_2);
                 break;
             case 3:
                 if (getCouleur() == VERT)
@@ -221,7 +215,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
     private void onClickValeur(int pas) {
         int valeur = getValeur();
 
-        if (valeur==6 && pas==1 || valeur==12 && pas==2 || valeur==18)
+        if (valeur == (6*pas))
             valeur=pas=0;
 
         afficheImage(valeur+pas);
