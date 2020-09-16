@@ -5,11 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
         android:label="Pigre Application"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controleur.TresFute"></activity>
+        <activity android:name=".controleur.TresFute"/>
         <activity android:name=".controleur.TresFuteSolo" />
         <activity android:name=".controleur.TresFuteScore" />
         <activity

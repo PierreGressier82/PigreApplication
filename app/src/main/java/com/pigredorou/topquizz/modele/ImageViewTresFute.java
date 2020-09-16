@@ -11,7 +11,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
     public static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
     public static int[][] tableauBleu = {{1,1,1,1},{1,2,3,4},{5,6,7,8},{9,10,11,12}};
     public static int[] tableauVert = {-1,1,2,3,4,5,1,2,3,4,5,6};
-    public static int[] tableauOrange = {-1,0,0,0,0,0,0,0,0,0,0,0};
+    public static int[] tableauOrange = {0,0,0,0,0,0,0,0,0,0,0,0};
     public static int[] tableauViolet = {0,0,0,0,0,0,0,0,0,0,0,0};
 
     private int mligne = -1;

@@ -879,7 +879,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/score_0"
                         android:textColor="@color/blanc"
-                        android:textSize="50sp" />
+                        android:textSize="40sp" />
                 </RelativeLayout>
 
                 <RelativeLayout

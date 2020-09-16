@@ -765,6 +765,107 @@
                     android:textAlignment="center">
 
                     <TextView
+                        android:id="@+id/libelle_score_jaune"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/jaune"
+                        android:textSize="30sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/libelle_score_bleu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/bleu"
+                        android:textSize="30sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/libelle_score_vert"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/vert"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/libelle_score_orange"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/libelle_score_violet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/violet"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/libelle_score_rouge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textColor="@color/rouge"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
                         android:id="@+id/score_jaune"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -867,12 +968,6 @@
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".5"
-                    android:textAlignment="center">
-
                     <TextView
                         android:id="@+id/score_total"
                         android:layout_width="match_parent"
@@ -880,133 +975,9 @@
                         android:text="@string/score_0"
                         android:textColor="@color/blanc"
                         android:textSize="50sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".17"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/de_tour_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:contentDescription="@string/d_choisi_au_premier_tour" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".17"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/de_tour_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:contentDescription="@string/d_choisi_au_second_tour" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".17"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/de_tour_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".17"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
-                    </RelativeLayout>
-                </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
