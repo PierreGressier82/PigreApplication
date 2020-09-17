@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,14 +53,15 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
     private TextView mscoreRouge;
     private TextView mscoreTotal;
 
-    public TresFuteScore() {
-    }
+    private ImageView mRAZ;
+    private ImageView mUndo;
+    private ImageView mExit;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //System.out.println("TresFute::onCreate()");
+        System.out.println("TresFute::onCreate()");
 
         // Masque le bar de titre de l'activité
         Objects.requireNonNull(getSupportActionBar()).hide();
@@ -81,6 +83,17 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
         mscoreViolet = findViewById(R.id.score_violet);
         mscoreRouge = findViewById(R.id.score_rouge);
         mscoreTotal = findViewById(R.id.score_total);
+
+        // Boutons
+        mRAZ = findViewById(R.id.raz);
+        mUndo = findViewById(R.id.undo);
+        mExit = findViewById(R.id.exit);
+        mRAZ.setOnClickListener(this);
+        mUndo.setOnClickListener(this);
+        mExit.setOnClickListener(this);
+        mRAZ.setTag("raz");
+        mUndo.setTag("undo");
+        mExit.setTag("exit");
 
         // Definition des couleurs
         setTableauJaune();
@@ -159,12 +172,11 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
 
         // Image renard, masqué
         imageJauneLigne4Case5 = findViewById(R.id.ligne4JauneCase5);
-        imageJauneLigne4Case5.setImageResource(R.drawable.tres_fute_loup_rouge);
+        imageJauneLigne4Case5.setImageResource(R.drawable.tres_fute_renard_rouge);
         imageJauneLigne4Case5.setVisibility(View.INVISIBLE);
     }
 
-    private void setTableauBleu()
-    {
+    private void setTableauBleu() {
         ImageViewTresFute imageBleuLigne2Case2 = findViewById(R.id.ligne2bleuCase2);
         ImageViewTresFute imageBleuLigne2Case3 = findViewById(R.id.ligne2bleuCase3);
         ImageViewTresFute imageBleuLigne2Case4 = findViewById(R.id.ligne2bleuCase4);
@@ -227,13 +239,12 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
 
         // Image renard, masqué
         imageBleuLigne4Case5 = findViewById(R.id.ligne4bleuCase5);
-        imageBleuLigne4Case5.setImageResource(R.drawable.tres_fute_loup_rouge);
+        imageBleuLigne4Case5.setImageResource(R.drawable.tres_fute_renard_rouge);
         imageBleuLigne4Case5.setVisibility(View.INVISIBLE);
 
     }
 
-    private void setTableauVert()
-    {
+    private void setTableauVert() {
         ImageViewTresFute imageVertLigne1Case2 = findViewById(R.id.ligne1VertCase2);
         ImageViewTresFute imageVertLigne1Case3 = findViewById(R.id.ligne1VertCase3);
         ImageViewTresFute imageVertLigne1Case4 = findViewById(R.id.ligne1VertCase4);
@@ -283,8 +294,7 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
         imageVertLigne1Case12.setOnClickListener(this);
     }
 
-    private void setTableauOrange()
-    {
+    private void setTableauOrange() {
         ImageViewTresFute imageOrangeLigne1Case2 = findViewById(R.id.ligne1OrangeCase2);
         ImageViewTresFute imageOrangeLigne1Case3 = findViewById(R.id.ligne1OrangeCase3);
         ImageViewTresFute imageOrangeLigne1Case4 = findViewById(R.id.ligne1OrangeCase4);
@@ -334,8 +344,7 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
         imageOrangeLigne1Case12.setOnClickListener(this);
     }
 
-    private void setTableauViolet()
-    {
+    private void setTableauViolet() {
         ImageViewTresFute imageVioletLigne1Case2 = findViewById(R.id.ligne1VioletCase2);
         ImageViewTresFute imageVioletLigne1Case3 = findViewById(R.id.ligne1VioletCase3);
         ImageViewTresFute imageVioletLigne1Case4 = findViewById(R.id.ligne1VioletCase4);
@@ -450,6 +459,30 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
             calcul_score_total();
         }
 
+        // Undo
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("undo"))
+            undo();
+        // Reset - RAZ
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("raz"))
+            raz();
+        // Quitter
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("exit"))
+            finish();
+    }
+
+    private void raz() {
+        Toast.makeText(this, "En cours de développement", Toast.LENGTH_SHORT).show();
+
+        // RAZ des "tableauclick.."
+        // RAZ des valeurs des ImageViewTresFute
+        // Mise à jour de l'affichage
+        // Mise à jour du score
+    }
+
+    private void undo() {
+        Toast.makeText(this, "En cours de développement", Toast.LENGTH_SHORT).show();
+
+        // Créer un tableau ImageViewTresFute avec la liste des click
     }
 
     private int calcul_score_rouge(int scoreMin)

@@ -178,7 +178,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
         // Image masqué du Renard
         imageJauneLigne4Case5 = findViewById(R.id.ligne4JauneCase5);
-        imageJauneLigne4Case5.setImageResource(R.drawable.tres_fute_loup_rouge);
+        imageJauneLigne4Case5.setImageResource(R.drawable.tres_fute_renard_rouge);
         imageJauneLigne4Case5.setVisibility(View.INVISIBLE);
     }
 
@@ -233,7 +233,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageBleuLigne4Case4.setColonne(3);
 
         imageBleuLigne4Case5 = findViewById(R.id.ligne4bleuCase5);
-        imageBleuLigne4Case5.setImageResource(R.drawable.tres_fute_loup_rouge);
+        imageBleuLigne4Case5.setImageResource(R.drawable.tres_fute_renard_rouge);
         imageBleuLigne4Case5.setVisibility(View.INVISIBLE);
     }
 
