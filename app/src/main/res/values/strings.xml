@@ -23,4 +23,8 @@
     <string name="d_lancer">Dé à lancer</string>
     <string name="mode_feuille_de_score">Mode feuille de score</string>
     <string name="mode_jeu_solo">Mode jeu solo</string>
+    <string name="raz">RAZ</string>
+    <string name="quitter">Quitter</string>
+    <string name="annuler">Annuler</string>
+    <string name="lancer_les_d_s">Lancer les dés</string>
 </resources>

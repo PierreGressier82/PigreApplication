@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,13 +17,14 @@ import com.pigredorou.topquizz.modele.TresFuteTools;
 
 import java.util.Objects;
 
-import static com.pigredorou.topquizz.modele.ImageViewTresFute.BLEU;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.BLANC;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.JAUNE;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.BLEU;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.ORANGE;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.VERT;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.VIOLET;
-import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauOrange;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauVert;
+import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauOrange;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauViolet;
 
 public class TresFuteSolo extends AppCompatActivity implements View.OnClickListener
@@ -41,6 +43,14 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private static int[] tableauScoreColonneVert = {0,1,3,6,10,15,21,28,36,45,55,66};
     private int[] tableauClickOrange = tableauOrange.clone();
     private int[] tableauClickViolet = tableauViolet.clone();
+
+    private ImageViewTresFute[] CasesBleues = new ImageViewTresFute[12];
+    private ImageViewTresFute[] CasesVertes = new ImageViewTresFute[12];
+    private ImageViewTresFute[] CasesOranges = new ImageViewTresFute[12];
+    private ImageViewTresFute[] CasesViolettes = new ImageViewTresFute[12];
+
+    private int[] DeActifs = {1,1,1,1,1,1}; // Tous les dés sont actifs par defaut
+    private int[] ValeurDes = {0,0,0,0,0,0};
 
     // Bonus
     private ImageView imageJauneLigne4Case5;
@@ -61,8 +71,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private TextView mDeViolet;
     private TextView mDeBlanc;
 
-    public TresFuteSolo() {
-    }
+    private ImageView mLanceDes;
+    private ImageView mQuitter;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -98,6 +108,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mDeOrange = findViewById(R.id.de_orange);
         mDeViolet = findViewById(R.id.de_violet);
         mDeBlanc = findViewById(R.id.de_blanc);
+        mLanceDes = findViewById(R.id.lance_des);
+        mQuitter = findViewById(R.id.exit);
 
         mDeJaune.setOnClickListener(this);
         mDeBleu.setOnClickListener(this);
@@ -105,6 +117,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mDeOrange.setOnClickListener(this);
         mDeViolet.setOnClickListener(this);
         mDeBlanc.setOnClickListener(this);
+        mLanceDes.setOnClickListener(this);
+        mQuitter.setOnClickListener(this);
 
         mDeJaune.setTag("DeJaune");
         mDeBleu.setTag("DeBleu");
@@ -112,7 +126,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mDeOrange.setTag("DeOrange");
         mDeViolet.setTag("DeViolet");
         mDeBlanc.setTag("DeBlanc");
-        lance_des();
+        mLanceDes.setTag("LancerDes");
+        mQuitter.setTag("Quitter");
 
         // Definition des couleurs
         setTableauJaune();
@@ -182,8 +197,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageJauneLigne4Case5.setVisibility(View.INVISIBLE);
     }
 
-    private void setTableauBleu()
-    {
+    private void setTableauBleu() {
         ImageViewTresFute imageBleuLigne2Case2 = findViewById(R.id.ligne2bleuCase2);
         ImageViewTresFute imageBleuLigne2Case3 = findViewById(R.id.ligne2bleuCase3);
         ImageViewTresFute imageBleuLigne2Case4 = findViewById(R.id.ligne2bleuCase4);
@@ -232,13 +246,24 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageBleuLigne4Case3.setColonne(2);
         imageBleuLigne4Case4.setColonne(3);
 
+        CasesBleues[1]=imageBleuLigne2Case2;
+        CasesBleues[2]=imageBleuLigne2Case3;
+        CasesBleues[3]=imageBleuLigne2Case4;
+        CasesBleues[4]=imageBleuLigne3Case1;
+        CasesBleues[5]=imageBleuLigne3Case2;
+        CasesBleues[6]=imageBleuLigne3Case3;
+        CasesBleues[7]=imageBleuLigne3Case4;
+        CasesBleues[8]=imageBleuLigne4Case1;
+        CasesBleues[9]=imageBleuLigne4Case2;
+        CasesBleues[10]=imageBleuLigne4Case3;
+        CasesBleues[11]=imageBleuLigne4Case4;
+
         imageBleuLigne4Case5 = findViewById(R.id.ligne4bleuCase5);
         imageBleuLigne4Case5.setImageResource(R.drawable.tres_fute_renard_rouge);
         imageBleuLigne4Case5.setVisibility(View.INVISIBLE);
     }
 
-    private void setTableauVert()
-    {
+    private void setTableauVert() {
         ImageViewTresFute imageVertLigne1Case2 = findViewById(R.id.ligne1VertCase2);
         ImageViewTresFute imageVertLigne1Case3 = findViewById(R.id.ligne1VertCase3);
         ImageViewTresFute imageVertLigne1Case4 = findViewById(R.id.ligne1VertCase4);
@@ -274,10 +299,21 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageVertLigne1Case10.setColonne(9);
         imageVertLigne1Case11.setColonne(10);
         imageVertLigne1Case12.setColonne(11);
+
+        CasesVertes[1]=imageVertLigne1Case2;
+        CasesVertes[2]=imageVertLigne1Case3;
+        CasesVertes[3]=imageVertLigne1Case4;
+        CasesVertes[4]=imageVertLigne1Case5;
+        CasesVertes[5]=imageVertLigne1Case6;
+        CasesVertes[6]=imageVertLigne1Case7;
+        CasesVertes[7]=imageVertLigne1Case8;
+        CasesVertes[8]=imageVertLigne1Case9;
+        CasesVertes[9]=imageVertLigne1Case10;
+        CasesVertes[10]=imageVertLigne1Case11;
+        CasesVertes[11]=imageVertLigne1Case12;
     }
 
-    private void setTableauOrange()
-    {
+    private void setTableauOrange() {
         ImageViewTresFute imageOrangeLigne1Case2 = findViewById(R.id.ligne1OrangeCase2);
         ImageViewTresFute imageOrangeLigne1Case3 = findViewById(R.id.ligne1OrangeCase3);
         ImageViewTresFute imageOrangeLigne1Case4 = findViewById(R.id.ligne1OrangeCase4);
@@ -314,10 +350,20 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageOrangeLigne1Case11.setColonne(10);
         imageOrangeLigne1Case12.setColonne(11);
 
+        CasesOranges[1]=imageOrangeLigne1Case2;
+        CasesOranges[2]=imageOrangeLigne1Case3;
+        CasesOranges[3]=imageOrangeLigne1Case4;
+        CasesOranges[4]=imageOrangeLigne1Case5;
+        CasesOranges[5]=imageOrangeLigne1Case6;
+        CasesOranges[6]=imageOrangeLigne1Case7;
+        CasesOranges[7]=imageOrangeLigne1Case8;
+        CasesOranges[8]=imageOrangeLigne1Case9;
+        CasesOranges[9]=imageOrangeLigne1Case10;
+        CasesOranges[10]=imageOrangeLigne1Case11;
+        CasesOranges[11]=imageOrangeLigne1Case12;
     }
 
-    private void setTableauViolet()
-    {
+    private void setTableauViolet() {
         ImageViewTresFute imageVioletLigne1Case2 = findViewById(R.id.ligne1VioletCase2);
         ImageViewTresFute imageVioletLigne1Case3 = findViewById(R.id.ligne1VioletCase3);
         ImageViewTresFute imageVioletLigne1Case4 = findViewById(R.id.ligne1VioletCase4);
@@ -354,6 +400,17 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         imageVioletLigne1Case11.setColonne(10);
         imageVioletLigne1Case12.setColonne(11);
 
+        CasesViolettes[1]=imageVioletLigne1Case2;
+        CasesViolettes[2]=imageVioletLigne1Case3;
+        CasesViolettes[3]=imageVioletLigne1Case4;
+        CasesViolettes[4]=imageVioletLigne1Case5;
+        CasesViolettes[5]=imageVioletLigne1Case6;
+        CasesViolettes[6]=imageVioletLigne1Case7;
+        CasesViolettes[7]=imageVioletLigne1Case8;
+        CasesViolettes[8]=imageVioletLigne1Case9;
+        CasesViolettes[9]=imageVioletLigne1Case10;
+        CasesViolettes[10]=imageVioletLigne1Case11;
+        CasesViolettes[11]=imageVioletLigne1Case12;
     }
 
     @Override
@@ -419,7 +476,6 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                     }
                     break;
             }
-            calcul_score_total();
         }
 
         System.out.println("");
@@ -427,8 +483,46 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         System.out.println(v.getTag());
 
 
-        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("De"))
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeBlanc"))
+        {
+            Toast.makeText(this, "En cours de dev", Toast.LENGTH_SHORT).show();
+            //utilise_de_bleu(ValeurDes[BLEU]+ValeurDes[BLANC]);
+            //desactive_de(BLANC);
+        }
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeJaune"))
+        {
+            Toast.makeText(this, "En cours de dev", Toast.LENGTH_SHORT).show();
+            //utilise_de_bleu(ValeurDes[BLEU]+ValeurDes[BLANC]);
+            //desactive_de(JAUNE);
+        }
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeBleu"))
+        {
+            utilise_de_bleu(ValeurDes[BLEU]+ValeurDes[BLANC]);
+            //desactive_de(BLEU);
+        }
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeVert"))
+        {
+            utilise_de_vert(ValeurDes[VERT]);
+            //desactive_de(VERT);
+        }
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeOrange"))
+        {
+            utilise_de_orange(ValeurDes[ORANGE]);
+            //desactive_de(ORANGE);
+        }
+        if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("DeViolet"))
+        {
+            utilise_de_violet(ValeurDes[VIOLET]);
+            //desactive_de(VIOLET);
+        }
+
+        // Bouton pour lancer les dés
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("LancerDes"))
             lance_des();
+        // Bouton pour quitter
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("Quitter"))
+            finish();
+        calcul_score_total();
     }
 
     private int calcul_score_rouge(int scoreMin)
@@ -513,12 +607,19 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     {
         System.out.println("DEBUT LANCE_DES");
 
-        mDeJaune.setText(String.valueOf(lance_de()));
-        mDeBleu.setText(String.valueOf(lance_de()));
-        mDeVert.setText(String.valueOf(lance_de()));
-        mDeOrange.setText(String.valueOf(lance_de()));
-        mDeViolet.setText(String.valueOf(lance_de()));
-        mDeBlanc.setText(String.valueOf(lance_de()));
+        ValeurDes[BLANC]=lance_de();
+        ValeurDes[JAUNE]=lance_de();
+        ValeurDes[BLEU]=lance_de();
+        ValeurDes[VERT]=lance_de();
+        ValeurDes[ORANGE]=lance_de();
+        ValeurDes[VIOLET]=lance_de();
+
+        mDeBlanc.setText(String.valueOf(ValeurDes[BLANC]));
+        mDeJaune.setText(String.valueOf(ValeurDes[JAUNE]));
+        mDeBleu.setText(String.valueOf(ValeurDes[BLEU]));
+        mDeVert.setText(String.valueOf(ValeurDes[VERT]));
+        mDeOrange.setText(String.valueOf(ValeurDes[ORANGE]));
+        mDeViolet.setText(String.valueOf(ValeurDes[VIOLET]));
 
         System.out.println("FIN LANCE_DES");
     }
@@ -533,4 +634,121 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
         return nbAleatoire;
     }
+
+    private void desactive_de(int couleur)
+    {
+        DeActifs[couleur]=0;
+
+        switch (couleur)
+        {
+            case JAUNE:
+                mDeJaune.setVisibility(View.INVISIBLE);
+                break;
+            case BLEU:
+                mDeBleu.setVisibility(View.INVISIBLE);
+                break;
+            case VERT:
+                mDeVert.setVisibility(View.INVISIBLE);
+                break;
+            case ORANGE:
+                mDeOrange.setVisibility(View.INVISIBLE);
+                break;
+            case VIOLET:
+                mDeViolet.setVisibility(View.INVISIBLE);
+                break;
+            case BLANC:
+                mDeBlanc.setVisibility(View.INVISIBLE);
+                break;
+        }
+    }
+
+    private void active_tous_des()
+    {
+        for (int i=0; i<DeActifs.length; i++)
+            DeActifs[i]=1;
+
+        mDeJaune.setVisibility(View.VISIBLE);
+        mDeBleu.setVisibility(View.VISIBLE);
+        mDeVert.setVisibility(View.VISIBLE);
+        mDeOrange.setVisibility(View.VISIBLE);
+        mDeViolet.setVisibility(View.VISIBLE);
+        mDeBlanc.setVisibility(View.VISIBLE);
+    }
+
+    private void utilise_de_bleu(int valeurBleuEtBlanc) {
+        ImageViewTresFute caseBleu=CasesBleues[valeurBleuEtBlanc-1];
+
+        if (caseBleu.getValeur()!=0)
+        {
+            caseBleu.onClick(0);
+            tableauClickBleu[caseBleu.getLigne()][caseBleu.getColonne()] = 0;
+        }
+        else
+            affiche_message_non_autorise();
+    }
+
+    private void utilise_de_vert(int valeur) {
+        int index, retour=0;
+        for (index=1; index<tableauClickVert.length; index++)
+        {
+            if (tableauClickVert[index]!=0)
+            {
+                if (valeur<tableauClickVert[index])
+                    retour = -1;
+                break;
+            }
+        }
+
+        System.out.println("utilise_de_vert : " + index + " - " + valeur + " - " + retour);
+
+        if(retour == 0 && index < tableauClickVert.length) {
+            tableauClickVert[index] = 0;
+            CasesVertes[index].onClick(valeur);
+        }
+        else
+            affiche_message_non_autorise();
+    }
+
+    private void utilise_de_orange(int valeur) {
+        int index;
+        for (index=1; index<tableauClickOrange.length; index++)
+        {
+            System.out.println("utilise_de_orange FOR " + index + " - " + tableauClickOrange[index]);
+            if (tableauClickOrange[index]==0)
+                break;
+        }
+
+        System.out.println("utilise_de_orange : " + index + " - " + valeur);
+
+        if(index < tableauClickOrange.length) {
+            tableauClickOrange[index] = valeur;
+            CasesOranges[index].onClick(valeur);
+        }
+        else
+            affiche_message_non_autorise();
+    }
+
+    private void utilise_de_violet(int valeur) {
+        int index;
+        for (index=1; index<tableauClickViolet.length; index++)
+        {
+            if (tableauClickViolet[index]==0)
+                break;
+        }
+
+        System.out.println("utilise_de_violet : " + index + " - " + valeur);
+
+
+        if(index < tableauClickViolet.length && valeur > tableauClickViolet[index-1]%6) {
+            tableauClickViolet[index] = valeur;
+            CasesViolettes[index].onClick(valeur);
+        }
+        else
+            affiche_message_non_autorise();
+    }
+
+    private void affiche_message_non_autorise() {
+        Toast.makeText(this, "Ce dé ne convient pas", Toast.LENGTH_SHORT).show();
+    }
+
 }

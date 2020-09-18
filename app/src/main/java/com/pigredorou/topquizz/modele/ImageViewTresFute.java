@@ -19,6 +19,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
     private int mcouleur;
     private int mvaleur = -1; // Permet de savoir l'etat de la valeur actuelle de la case
 
+    public static final int BLANC = 0;
     public static final int JAUNE = 1;
     public static final int BLEU = 2;
     public static final int VERT = 3;
@@ -193,7 +194,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
                onClickCroix(getValeurTableauVert());
                break;
            case ORANGE:
-               onClickOrange();
+               onClickOrange(valeurDuClick);
                break;
            case VIOLET:
                onClickValeur(valeurDuClick);
@@ -222,20 +223,20 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         setValeur(valeur+pas);
     }
 
-    private void onClickOrange()
+    private void onClickOrange(int valeurDe)
     {
         switch (getColonne())
         {
             case 4:
             case 7:
             case 9:
-                onClickValeur(2);
+                onClickValeur(2*valeurDe);
                 break;
             case 11:
-                onClickValeur(3);
+                onClickValeur(3*valeurDe);
                 break;
             default:
-                onClickValeur(1);
+                onClickValeur(1*valeurDe);
                 break;
         }
     }

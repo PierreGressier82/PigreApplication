@@ -11,6 +11,120 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/texte_lance_des"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blanc"
+                android:textSize="12sp"
+                android:text="@string/lancer_les_d_s"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/texte_raz"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blanc"
+                android:textSize="12sp"
+                android:text="@string/raz"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/texte_exit"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/blanc"
+                android:textSize="12sp"
+                android:text="@string/quitter"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <ImageView
+                android:id="@+id/lance_des"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@color/blanc"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <ImageView
+                android:id="@+id/raz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@color/blanc"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_weight=".33"
+            android:textAlignment="center">
+
+            <ImageView
+                android:id="@+id/exit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@color/blanc"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout

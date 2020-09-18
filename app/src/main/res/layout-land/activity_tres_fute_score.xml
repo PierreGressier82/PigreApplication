@@ -1258,8 +1258,69 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/texte_undo"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="10sp"
+                        android:textColor="@color/blanc"
+                        android:textAlignment="center"
+                        android:text="@string/annuler"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/texte_raz"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="10sp"
+                        android:textColor="@color/blanc"
+                        android:textAlignment="center"
+                        android:text="@string/raz"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/texte_exit"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="10sp"
+                        android:textColor="@color/blanc"
+                        android:textAlignment="center"
+                        android:text="@string/quitter"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:orientation="horizontal">
 
                 <RelativeLayout
