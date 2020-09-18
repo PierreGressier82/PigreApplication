@@ -888,10 +888,13 @@
                     android:layout_weight=".17"
                     android:gravity="center">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/de_tour_1"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
                         android:contentDescription="@string/d_choisi_au_premier_tour" />
                 </RelativeLayout>
 
@@ -901,10 +904,13 @@
                     android:layout_weight=".17"
                     android:gravity="center">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/de_tour_2"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
                         android:contentDescription="@string/d_choisi_au_second_tour" />
                 </RelativeLayout>
 
@@ -914,10 +920,13 @@
                     android:layout_weight=".17"
                     android:gravity="center">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/de_tour_3"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
                         android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
                 </RelativeLayout>
             </LinearLayout>
@@ -930,8 +939,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:orientation="horizontal">
 
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -939,10 +947,14 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_jaune_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/jaune"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -951,10 +963,14 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_bleu_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/bleu"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -963,10 +979,14 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_vert_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/vert"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -975,10 +995,14 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_orange_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/orange"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -987,10 +1011,14 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_violet_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/violet"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -999,13 +1027,16 @@
                         android:layout_weight=".17"
                         android:textAlignment="center">
 
-                        <ImageView
+                        <TextView
+                            android:id="@+id/de_blanc_plateau"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:contentDescription="@string/d_lancer" />
+                            android:textAlignment="center"
+                            android:textColor="@color/blanc"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
                     </RelativeLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1165,6 +1196,7 @@
                         android:text="@string/quitter"/>
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -1215,6 +1247,295 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:src="@color/blanc"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/tour_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".16"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".16"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

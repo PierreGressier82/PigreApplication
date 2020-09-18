@@ -58,8 +58,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         return this.mvaleur;
     }
 
-    public void setCouleur(int couleur)
-    {
+    public void setCouleur(int couleur) {
         this.mcouleur=couleur;
 
         // Si couleur vert, orange ou violet, le tableau n'a qu'une seule ligne
@@ -73,8 +72,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         }
     }
 
-    public void setColonne(int colonne)
-    {
+    public void setColonne(int colonne) {
         this.mcolonne=colonne;
 
         // Affecter la valeur par defaut si ligne et colonne sont attribué
@@ -84,8 +82,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         }
     }
 
-    public void setLigne(int ligne)
-    {
+    public void setLigne(int ligne) {
         this.mligne=ligne;
 
         // Affecter la valeur par defaut si ligne et colonne sont attribué
@@ -100,8 +97,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         this.mvaleur = valeur;
     }
 
-    public void afficheImage(int valeuraAfficher)
-    {
+    public void afficheImage(int valeuraAfficher) {
         //System.out.println("ImageViewTresFute:afficheImage ");
         switch (valeuraAfficher)
         {
@@ -182,8 +178,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
 
    public void onClick(int valeurDuClick) {
        System.out.println("ImageViewTresFute:onClick ");
-       switch (getCouleur())
-       {
+       switch (getCouleur()) {
            case JAUNE:
                onClickCroix(getValeurTableauJaune());
                break;
@@ -223,10 +218,8 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         setValeur(valeur+pas);
     }
 
-    private void onClickOrange(int valeurDe)
-    {
-        switch (getColonne())
-        {
+    private void onClickOrange(int valeurDe) {
+        switch (getColonne()) {
             case 4:
             case 7:
             case 9:
@@ -266,8 +259,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
         return tableauViolet[getColonne()];
     }
 
-    private void init_valeur()
-    {
+    private void init_valeur() {
         switch (getCouleur()) {
             case JAUNE:
                 mvaleur=getValeurTableauJaune();
