@@ -889,12 +889,13 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/de_tour_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/de_lance_1"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
                         android:contentDescription="@string/d_choisi_au_premier_tour" />
                 </RelativeLayout>
 
@@ -905,12 +906,13 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/de_tour_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/de_lance_2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
                         android:contentDescription="@string/d_choisi_au_second_tour" />
                 </RelativeLayout>
 
@@ -921,12 +923,13 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/de_tour_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/de_lance_3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
                         android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
                 </RelativeLayout>
             </LinearLayout>
@@ -1264,6 +1267,7 @@
 
                     <ImageView
                         android:id="@+id/tour_1"
+                        android:src="@drawable/tres_fute_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
@@ -1277,6 +1281,7 @@
 
                     <ImageView
                         android:id="@+id/tour_2"
+                        android:src="@drawable/tres_fute_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
@@ -1290,6 +1295,7 @@
 
                     <ImageView
                         android:id="@+id/tour_3"
+                        android:src="@drawable/tres_fute_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
@@ -1302,6 +1308,7 @@
 
                     <ImageView
                         android:id="@+id/tour_4"
+                        android:src="@drawable/tres_fute_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
@@ -1314,6 +1321,7 @@
 
                     <ImageView
                         android:id="@+id/tour_5"
+                        android:src="@drawable/tres_fute_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
@@ -1326,6 +1334,7 @@
 
                     <ImageView
                         android:id="@+id/tour_6"
+                        android:src="@drawable/tres_fute_6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </RelativeLayout>
