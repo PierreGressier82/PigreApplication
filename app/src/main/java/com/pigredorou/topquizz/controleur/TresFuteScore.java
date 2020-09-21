@@ -452,7 +452,7 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
                         if (tableauClickViolet[colonne] == 0 && tableauClickViolet[colonne-1] != 6) // Ajout uniquement si case vide
                             modulo6 = (valeurColonnePrec+1)%7;
                         imageClick.onClick(modulo6);
-                        tableauClickViolet[imageClick.getColonne()] = imageClick.getValeur();
+                        tableauClickViolet[colonne] = imageClick.getValeur();
                     }
                     break;
             }

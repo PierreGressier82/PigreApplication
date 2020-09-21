@@ -95,6 +95,9 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private ImageView mTour4;
     private ImageView mTour5;
     private ImageView mTour6;
+    private ImageView mTour2Bonus;
+    private ImageView mTour3Bonus;
+    private ImageView mTour4Bonus;
 
 
     private boolean desLances = false;
@@ -190,12 +193,18 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mTour4 = findViewById(R.id.tour_4);
         mTour5 = findViewById(R.id.tour_5);
         mTour6 = findViewById(R.id.tour_6);
+        mTour2Bonus = findViewById(R.id.tour_2_bonus);
+        mTour3Bonus = findViewById(R.id.tour_3_bonus);
+        mTour4Bonus = findViewById(R.id.tour_4_bonus);
 
         mTour2.setVisibility(View.INVISIBLE);
         mTour3.setVisibility(View.INVISIBLE);
         mTour4.setVisibility(View.INVISIBLE);
         mTour5.setVisibility(View.INVISIBLE);
         mTour6.setVisibility(View.INVISIBLE);
+        mTour2Bonus.setVisibility(View.INVISIBLE);
+        mTour3Bonus.setVisibility(View.INVISIBLE);
+        mTour4Bonus.setVisibility(View.INVISIBLE);
 
         // Boutons
         ImageView mLanceDes = findViewById(R.id.lance_des);
@@ -597,12 +606,15 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         switch (manche) {
             case 2:
                 mTour2.setVisibility(View.VISIBLE);
+                mTour2Bonus.setVisibility(View.VISIBLE);
                 break;
             case 3:
                 mTour3.setVisibility(View.VISIBLE);
+                mTour3Bonus.setVisibility(View.VISIBLE);
                 break;
             case 4:
                 mTour4.setVisibility(View.VISIBLE);
+                mTour4Bonus.setVisibility(View.VISIBLE);
                 break;
             case 5:
                 mTour5.setVisibility(View.VISIBLE);
@@ -859,6 +871,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private boolean utilise_de_blanc(int valeurBlanc, int valeurBleu) {
         int nbCases = 0;
         int index;
+        ImageViewTresFute caseTrouve=null;
 
         // Jaune
         ImageViewTresFute caseJaune1 = CasesJaunes[1][valeurBlanc];
@@ -866,16 +879,19 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (caseJaune1.getValeur() != 0) {
             caseJaune1.setClickable(true);
             nbCases++;
+            caseTrouve=caseJaune1;
         }
         if (caseJaune2.getValeur() != 0) {
             caseJaune2.setClickable(true);
             nbCases++;
+            caseTrouve=caseJaune2;
         }
         // Bleu
         ImageViewTresFute caseBleu = CasesBleues[valeurBleu + valeurBlanc - 1];
         if (caseBleu.getValeur() != 0) {
             caseBleu.setClickable(true);
             nbCases++;
+            caseTrouve=caseBleu;
         }
         // Vert
         for (index = 1; index < tableauClickVert.length; index++) {
@@ -885,6 +901,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickVert.length && valeurBlanc >= tableauClickVert[index]) {
             CasesVertes[index].setClickable(true);
             nbCases++;
+            caseTrouve=CasesVertes[index];
         }
         // Orange
         for (index = 1; index < tableauClickOrange.length; index++) {
@@ -894,6 +911,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickOrange.length) {
             CasesOranges[index].setClickable(true);
             nbCases++;
+            caseTrouve=CasesOranges[index];
         }
         // Violet
         for (index = 1; index < tableauClickViolet.length; index++) {
@@ -903,12 +921,23 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickViolet.length && valeurBlanc > tableauClickViolet[index - 1] % 6) {
             CasesViolettes[index].setClickable(true);
             nbCases++;
+            caseTrouve=CasesViolettes[index];
         }
 
-        if (nbCases == 0)
-            affiche_message_non_autorise();
-        else {
-            caseAChoisir = true;
+        switch (nbCases) {
+            case 0:
+                affiche_message_non_autorise();
+                break;
+            case 1:
+                if (caseTrouve != null)
+                    if (caseTrouve.getCouleur() == BLEU)
+                        caseTrouve.onClick(valeurBlanc+valeurBleu);
+                    else
+                        caseTrouve.onClick(valeurBlanc);
+                break;
+            default:
+                caseAChoisir = true;
+                break;
         }
 
         return caseAChoisir;

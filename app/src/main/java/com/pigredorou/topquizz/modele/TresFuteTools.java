@@ -13,8 +13,7 @@ public class TresFuteTools {
     private static int[] tableauScoreColonneVert = {0,1,3,6,10,15,21,28,36,45,55,66};
 
     // Retourne 1 si la click sur cette case est possible, 0 sinon.
-    public static int isClickPossibleCroix(int colonne, int valeurColonnePrec, int valeurColonneSuiv)
-    {
+    public static int isClickPossibleCroix(int colonne, int valeurColonnePrec, int valeurColonneSuiv) {
         int clickOK = 0;
 
         switch (colonne) {
@@ -36,8 +35,7 @@ public class TresFuteTools {
     }
 
     // Retourne 1 si la click sur cette case est possible, 0 sinon.
-    public static int isClickPossibleChiffres(int colonne, int valeurColonnePrec, int valeurColonneSuiv)
-    {
+    public static int isClickPossibleChiffres(int colonne, int valeurColonnePrec, int valeurColonneSuiv) {
         int clickOK = 0;
 
         switch (colonne) {
