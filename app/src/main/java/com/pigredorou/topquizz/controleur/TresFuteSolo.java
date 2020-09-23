@@ -1145,8 +1145,10 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         int index;
 
         for(index=0; index<tableauBonusRejoue.length;index++) {
-            if (tableauBonusRejoue[index]==-1)
+            if (tableauBonusRejoue[index]==-1) {
+                tableauBonusRejoue[index]=0;
                 break;
+            }
         }
         affiche_bonus_rejoue(index, R.drawable.tres_fute_bonus_actif);
     }
@@ -1200,8 +1202,10 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         int index;
 
         for(index=0; index<tableauBonusDeSupplementaire.length;index++) {
-            if (tableauBonusDeSupplementaire[index]==-1)
+            if (tableauBonusDeSupplementaire[index]==-1) {
+                tableauBonusDeSupplementaire[index]=0;
                 break;
+            }
         }
 
         affiche_bonus_de_supplementaire(index, R.drawable.tres_fute_bonus_actif);
