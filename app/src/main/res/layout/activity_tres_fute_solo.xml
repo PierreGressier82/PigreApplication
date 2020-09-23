@@ -5,1151 +5,1605 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#333333"
-    android:orientation="vertical"
-    tools:context=".controleur.TresFuteSolo">
+    android:orientation="horizontal"
+    tools:context=".controleur.TresFuteSolo"
+    android:baselineAligned="false">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".17"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/de_tour_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:contentDescription="@string/d_choisi_au_premier_tour" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".17"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/de_tour_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:contentDescription="@string/d_choisi_au_second_tour" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".17"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/de_tour_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/texte_lance_des"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blanc"
-                android:textSize="12sp"
-                android:text="@string/lancer_les_d_s"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/texte_raz"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blanc"
-                android:textSize="12sp"
-                android:text="@string/raz"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/texte_exit"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textAlignment="center"
-                android:textColor="@color/blanc"
-                android:textSize="12sp"
-                android:text="@string/quitter"/>
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <ImageView
-                android:id="@+id/lance_des"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@color/blanc"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <ImageView
-                android:id="@+id/raz"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@color/blanc"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_weight=".33"
-            android:textAlignment="center">
-
-            <ImageView
-                android:id="@+id/exit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@color/blanc"/>
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:baselineAligned="false"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+
+                        <TableLayout
+                            android:id="@+id/tableJaune"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/tres_fute_carre_jaune"
+                            android:outlineSpotShadowColor="@color/jaune">
+
+                            <TableRow
+                                android:id="@+id/ligne1Jaune"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:paddingHorizontal="2dp">
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1JauneCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:adjustViewBounds="false"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/tres_fute_3" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1JauneCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:adjustViewBounds="false"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/tres_fute_6" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1JauneCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/tres_fute_5" />
+
+                                <ImageView
+                                    android:id="@+id/ligne1JauneCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:layout_marginEnd="3dp"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/tres_fute_barre" />
+
+                                <ImageView
+                                    android:id="@+id/ligne1JauneCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/tres_fute_barre_bleu" />
+
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne2Jaune"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2JauneCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_2" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2JauneCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_1" />
+
+                                <ImageView
+                                    android:id="@+id/ligne2JauneCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_barre" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2JauneCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_5" />
+
+                                <ImageView
+                                    android:id="@+id/ligne2JauneCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_4_orange"
+                                    android:layout_marginStart="5dp" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne3Jaune"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3JauneCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_1" />
+
+                                <ImageView
+                                    android:id="@+id/ligne3JauneCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_barre" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3JauneCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_2" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3JauneCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_4" />
+
+                                <ImageView
+                                    android:id="@+id/ligne3JauneCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_vert"
+                                    android:layout_marginStart="5dp" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne4Jaune"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne4JauneCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_barre" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4JauneCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_3" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4JauneCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_4" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4JauneCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_6" />
+
+                                <ImageView
+                                    android:id="@+id/ligne4JauneCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne5Jaune"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne5JauneCase1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_score_10_jaune" />
+
+                                <ImageView
+                                    android:id="@+id/ligne5JauneCase2"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_score_14_jaune" />
+
+                                <ImageView
+                                    android:id="@+id/ligne5JauneCase3"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_score_16_jaune" />
+
+                                <ImageView
+                                    android:id="@+id/ligne5JauneCase4"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_score_20_jaune" />
+
+                                <ImageView
+                                    android:id="@+id/ligne5JauneCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_plus1"
+                                    android:layout_marginStart="5dp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="33dp"/>
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5">
+
+                        <TableLayout
+                            android:id="@+id/tableBleu"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/tres_fute_carre_bleu"
+                            android:outlineSpotShadowColor="@color/bleu">
+
+                            <TableRow
+                                android:id="@+id/ligne1Bleu"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:paddingHorizontal="2dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne1Bleucase1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="33dp"
+                                    android:layout_gravity="fill"
+                                    android:layout_span="6"
+                                    android:src="@drawable/tres_fute_score_bleu" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne2Bleu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne2bleuCase1"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:src="@drawable/tres_fute_de_bleu_et_blanc" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2bleuCase2"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:src="@drawable/tres_fute_2" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2bleuCase3"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:src="@drawable/tres_fute_3" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne2bleuCase4"
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:src="@drawable/tres_fute_4" />
+
+                                <ImageView
+                                    android:id="@+id/ligne2bleuCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_5_orange"/>
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne3Bleu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3bleuCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_5" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3bleuCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_6" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3bleuCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_7" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne3bleuCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_8" />
+
+                                <ImageView
+                                    android:id="@+id/ligne3bleuCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_jaune" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne4Bleu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4bleuCase1"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_9" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4bleuCase2"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_10" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4bleuCase3"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_11" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne4bleuCase4"
+                                    android:layout_width="33dp"
+                                    android:layout_height="33dp"
+                                    android:src="@drawable/tres_fute_12" />
+
+                                <ImageView
+                                    android:id="@+id/ligne4bleuCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp" />
+                            </TableRow>
+
+                            <TableRow
+                                android:id="@+id/ligne5Bleu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne5bleuCase1"
+                                    android:src="@drawable/tres_fute_bonus_relance"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"/>
+
+                                <ImageView
+                                    android:id="@+id/ligne5bleuCase2"
+                                    android:src="@drawable/tres_fute_bonus_vert"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"/>
+
+                                <ImageView
+                                    android:id="@+id/ligne5bleuCase3"
+                                    android:src="@drawable/tres_fute_bonus_6_violet"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"/>
+
+                                <ImageView
+                                    android:id="@+id/ligne5bleuCase4"
+                                    android:src="@drawable/tres_fute_bonus_plus1"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"/>
+
+                                <ImageView
+                                    android:id="@+id/ligne5bleuCase5"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="5dp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="33dp" />
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5">
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".33">
+
+                        <TableLayout
+                            android:id="@+id/tableVert"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:background="@drawable/tres_fute_carre_vert"
+                            android:outlineSpotShadowColor="@color/vert">
+
+                            <TableRow
+                                android:id="@+id/ligne1Vert"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne1VertCase1"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/tres_fute_fleche_vert" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase2"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_1_vert" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase3"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_2_vert" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase4"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_3_vert" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase5"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase6"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase7"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase8"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase9"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase10"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase11"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VertCase12"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+                            </TableRow>
+                        </TableLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".33">
+
+                        <TableLayout
+                            android:id="@+id/tableOrange"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/tres_fute_carre_orange"
+                            android:outlineSpotShadowColor="@color/orange">
+
+                            <TableRow
+                                android:id="@+id/ligne1Orange"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne1OrangeCase1"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/tres_fute_fleche_orange" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase2"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase3"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase4"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase5"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase6"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase7"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase8"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase9"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase10"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase11"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1OrangeCase12"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+                            </TableRow>
+                        </TableLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".33">
+
+                        <TableLayout
+                            android:id="@+id/tableViolet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/tres_fute_carre_violet"
+                            android:outlineSpotShadowColor="@color/violet">
+
+                            <TableRow
+                                android:id="@+id/ligne1Violet"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:padding="3dp">
+
+                                <ImageView
+                                    android:id="@+id/ligne1VioletCase1"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:src="@drawable/tres_fute_fleche_violet" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase2"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase3"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase4"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase5"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase6"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase7"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase8"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase9"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase10"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase11"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+
+                                <com.pigredorou.topquizz.modele.ImageViewTresFute
+                                    android:id="@+id/ligne1VioletCase12"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/tres_fute_case_blanche" />
+                            </TableRow>
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:contentDescription="@string/d_lancer" />
-            </RelativeLayout>
         </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/de_jaune"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textColor="@color/jaune"
-                    android:textSize="20sp" />
-            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                    <TextView
+                        android:id="@+id/score_jaune"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/jaune"
+                        android:textSize="25sp" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/de_bleu"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textColor="@color/bleu"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                    <TextView
+                        android:id="@+id/score_bleu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/bleu"
+                        android:textSize="25sp" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/de_vert"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textColor="@color/vert"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                    <TextView
+                        android:id="@+id/score_vert"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/vert"
+                        android:textSize="25sp" />
 
-                <TextView
-                    android:id="@+id/de_orange"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textColor="@color/orange"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
+                </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
-                <TextView
-                    android:id="@+id/de_violet"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textColor="@color/violet"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/score_orange"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        android:textSize="25sp" />
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".17"
-                android:textAlignment="center">
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/de_blanc"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:textSize="20sp"/>
-            </RelativeLayout>
-        </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/score_violet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/violet"
+                        android:textSize="25sp" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5">
+                </RelativeLayout>
 
-            <TableLayout
-                android:id="@+id/tableJaune"
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/score_rouge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/zero"
+                        android:textAlignment="center"
+                        android:textColor="@color/rouge"
+                        android:textSize="25sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/tres_fute_carre_jaune"
-                android:outlineSpotShadowColor="@color/jaune">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
-                <TableRow
-                    android:id="@+id/ligne1Jaune"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:paddingHorizontal="2dp">
+                    android:layout_weight=".5"
+                    android:textAlignment="center">
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne1JauneCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginEnd="3dp"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/tres_fute_3" />
+                    <TextView
+                        android:id="@+id/score_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/score_0"
+                        android:textColor="@color/blanc"
+                        android:textSize="35sp" />
+                </RelativeLayout>
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne1JauneCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginEnd="3dp"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tres_fute_6" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne1JauneCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginEnd="3dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tres_fute_5" />
-
-                    <ImageView
-                        android:id="@+id/ligne1JauneCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginEnd="3dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/tres_fute_barre" />
-
-                    <ImageView
-                        android:id="@+id/ligne1JauneCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/tres_fute_barre_bleu" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/ligne2Jaune"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2JauneCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_2" />
+                    <TextView
+                        android:id="@+id/de_lance_1"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
+                        android:contentDescription="@string/d_choisi_au_premier_tour" />
+                </RelativeLayout>
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2JauneCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_1" />
-
-                    <ImageView
-                        android:id="@+id/ligne2JauneCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_barre" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2JauneCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_5" />
-
-                    <ImageView
-                        android:id="@+id/ligne2JauneCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/ligne3Jaune"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3JauneCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_1" />
+                    <TextView
+                        android:id="@+id/de_lance_2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
+                        android:contentDescription="@string/d_choisi_au_second_tour" />
+                </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/ligne3JauneCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_barre" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3JauneCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_2" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3JauneCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_4" />
-
-                    <ImageView
-                        android:id="@+id/ligne3JauneCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/ligne4Jaune"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-                    <ImageView
-                        android:id="@+id/ligne4JauneCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_barre" />
+                    <TextView
+                        android:id="@+id/de_lance_3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/blanc"
+                        android:background="@drawable/tres_fute_case_blanche"
+                        android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
+                </RelativeLayout>
+            </LinearLayout>
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4JauneCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_3" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4JauneCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_4" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4JauneCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_6" />
-
-                    <ImageView
-                        android:id="@+id/ligne4JauneCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/ligne5Jaune"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/ligne5JauneCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_score_10_jaune" />
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
 
-                    <ImageView
-                        android:id="@+id/ligne5JauneCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_score_14_jaune" />
+                        <TextView
+                            android:id="@+id/de_jaune_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/jaune"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/ligne5JauneCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_score_16_jaune" />
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
 
-                    <ImageView
-                        android:id="@+id/ligne5JauneCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_score_20_jaune" />
+                        <TextView
+                            android:id="@+id/de_bleu_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/bleu"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/ligne5JauneCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
 
-                </TableRow>
+                        <TextView
+                            android:id="@+id/de_vert_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/vert"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
 
-            </TableLayout>
-        </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".5">
+                        <TextView
+                            android:id="@+id/de_orange_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
 
-            <TableLayout
-                android:id="@+id/tableBleu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/tres_fute_carre_bleu"
-                android:outlineSpotShadowColor="@color/bleu">
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
 
-                <TableRow
-                    android:id="@+id/ligne1Bleu"
+                        <TextView
+                            android:id="@+id/de_violet_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/violet"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_blanc_plateau"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/blanc"
+                            android:background="@color/cardview_dark_background"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_jaune"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/jaune"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_bleu"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/bleu"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_vert"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/vert"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_orange"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_violet"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/violet"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".17"
+                        android:textAlignment="center">
+
+                        <TextView
+                            android:id="@+id/de_blanc"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/blanc"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
->
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne1Bleucase1"
+                        android:id="@+id/tour_1"
+                        android:src="@drawable/tres_fute_1"
                         android:layout_width="match_parent"
-                        android:layout_height="33dp"
-                        android:layout_span="7"
-                        android:src="@drawable/tres_fute_points_bleus"/>
-                </TableRow>
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
 
-                <TableRow
-                    android:id="@+id/ligne2Bleu"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne2bleuCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_de_bleu_et_blanc"/>
+                        android:id="@+id/tour_2"
+                        android:src="@drawable/tres_fute_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
 
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2bleuCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_2" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2bleuCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_3" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne2bleuCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_4" />
-
-                    <ImageView
-                        android:id="@+id/ligne2bleuCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/ligne3Bleu"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3bleuCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_5" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3bleuCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_6" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3bleuCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_7" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne3bleuCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_8" />
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne3bleuCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
+                        android:id="@+id/tour_3"
+                        android:src="@drawable/tres_fute_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
 
-                <TableRow
-                    android:id="@+id/ligne4Bleu"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4bleuCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_9" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4bleuCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_10" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4bleuCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_11" />
-
-                    <com.pigredorou.topquizz.modele.ImageViewTresFute
-                        android:id="@+id/ligne4bleuCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:src="@drawable/tres_fute_12" />
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne4bleuCase5"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
+                        android:id="@+id/tour_4"
+                        android:src="@drawable/tres_fute_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
 
-                <TableRow
-                    android:id="@+id/ligne5Bleu"
-                    android:layout_width="match_parent"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dp">
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne5bleuCase1"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp" />
+                        android:id="@+id/tour_5"
+                        android:src="@drawable/tres_fute_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:textAlignment="center">
 
                     <ImageView
-                        android:id="@+id/ligne5bleuCase2"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp" />
+                        android:id="@+id/tour_6"
+                        android:src="@drawable/tres_fute_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/ligne5bleuCase3"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp" />
-
-                    <ImageView
-                        android:id="@+id/ligne5bleuCase4"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp" />
-
-                    <ImageView
-                        android:id="@+id/ligne5bleuCase5"
+                        android:id="@+id/tour_1_bonus"
+                        android:src="@drawable/tres_fute_bonus_relance"
                         android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="5dp" />
-                </TableRow>
+                        android:layout_height="20dp"/>
+                </RelativeLayout>
 
-            </TableLayout>
-        </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/tour_2_bonus"
+                        android:src="@drawable/tres_fute_bonus_plus1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </RelativeLayout>
 
-    <TableLayout
-        android:id="@+id/tableVert"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/tres_fute_carre_vert"
-        android:outlineSpotShadowColor="@color/vert">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-        <TableRow
-            android:id="@+id/ligne1Vert"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:padding="3dp">
+                    <ImageView
+                        android:id="@+id/tour_3_bonus"
+                        android:src="@drawable/tres_fute_bonus_relance"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/ligne1VertCase1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/tres_fute_fleche_vert" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase2"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_1_vert" />
+                    <ImageView
+                        android:id="@+id/tour_4_bonus"
+                        android:src="@drawable/tres_fute_croix_et_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"/>
+                </RelativeLayout>
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase3"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_2_vert" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase4"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_3_vert" />
+                    <ImageView
+                        android:id="@+id/tour_5_bonus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase5"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".17"
+                    android:gravity="center">
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase6"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
+                    <ImageView
+                        android:id="@+id/tour_6_bonus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
 
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase7"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase8"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase9"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase10"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase11"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VertCase12"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/tableOrange"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/tres_fute_carre_orange">
-
-        <TableRow
-            android:id="@+id/ligne1Orange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:padding="3dp">
-
-            <ImageView
-                android:id="@+id/ligne1OrangeCase1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/tres_fute_fleche_orange" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase2"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase3"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase4"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase5"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase6"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase7"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase8"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase9"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase10"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase11"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1OrangeCase12"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/tableViolet"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/tres_fute_carre_violet">
-
-        <TableRow
-            android:id="@+id/ligne1Violet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:padding="3dp">
-
-            <ImageView
-                android:id="@+id/ligne1VioletCase1"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="5dp"
-                android:src="@drawable/tres_fute_fleche_violet" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase2"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase3"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase4"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase5"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase6"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase7"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase8"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase9"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase10"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase11"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-
-            <com.pigredorou.topquizz.modele.ImageViewTresFute
-                android:id="@+id/ligne1VioletCase12"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/tres_fute_case_blanche" />
-        </TableRow>
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33"
-            android:textAlignment="center"
-            android:layout_marginTop="0dp">
-
-            <TextView
-                android:id="@+id/score_jaune"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/jaune"
-                android:text="0"
-                android:textAlignment="center"
-            android:textSize="40dp"
-                />
-        </RelativeLayout>
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33"
-            android:textAlignment="center"
-            android:layout_marginTop="0dp">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".16"
+                    android:gravity="end">
 
-            <TextView
-                android:id="@+id/score_bleu"
+                    <ImageView
+                        android:id="@+id/bonus_rejoue"
+                        android:src="@drawable/tres_fute_bonus_relance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_1"
+                        android:src="@drawable/tres_fute_bonus_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_2"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_3"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_4"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_5"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_6"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_rejoue_7"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/bleu"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="40dp"/>
-        </RelativeLayout>
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33"
-            android:textAlignment="center"
-            android:layout_marginTop="0dp">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".16"
+                    android:textAlignment="center">
 
-            <TextView
-                android:id="@+id/score_vert"
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire"
+                        android:src="@drawable/tres_fute_bonus_plus1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_1"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_2"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_3"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_4"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_5"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_6"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".12"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:id="@+id/bonus_de_supplementaire_7"
+                        android:src="@drawable/tres_fute_bonus_non_actif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/vert"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="40dp"/>
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33">
+                    <ImageView
+                        android:id="@+id/lance_des"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/tres_fute_lance_des"/>
+                </RelativeLayout>
 
-            <TextView
-                android:id="@+id/score_orange"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/orange"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="40dp"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
 
-        </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/raz"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/tres_fute_passer_tour"/>
+                </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight=".33"
+                    android:textAlignment="center">
 
-            <TextView
-                android:id="@+id/score_violet"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/violet"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="40dp"/>
+                    <ImageView
+                        android:id="@+id/exit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/tres_fute_quitter"/>
+                </RelativeLayout>
+            </LinearLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".33">
-
-            <TextView
-                android:id="@+id/score_rouge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/rouge"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="40dp"/>
-
-        </RelativeLayout>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/score_total"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Score : 0"
-        android:textColor="@color/blanc"
-        android:textSize="80dp"/>
-
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

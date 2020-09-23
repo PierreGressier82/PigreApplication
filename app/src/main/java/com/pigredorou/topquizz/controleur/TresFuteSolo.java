@@ -53,9 +53,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     private int[] DeActifs = {1, 1, 1, 1, 1, 1}; // Tous les dés sont actifs par defaut
     private int[] ValeurDes = {0, 0, 0, 0, 0, 0};
-    //private int[] ValeurDesPlateau = {0, 0, 0, 0, 0, 0};
-    //private int[] tourDeJeuValeur = new int[3]; // Valeur des dés par tour de jeu
-    //private int[] tourDeJeuCouleur = new int[3]; // Couleur des dés choisis par tour de jeu
+    private int[] tableauBonusRejoue = {0, -1, -1, -1, -1, -1, -1};
+    private int[] tableauBonusDeSupplementaire = {-1, -1, -1, -1, -1, -1, -1};
     private int LanceDe = 1;
     private int tour = 1;
 
@@ -99,6 +98,20 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private ImageView mTour3Bonus;
     private ImageView mTour4Bonus;
 
+    private ImageView mBonusRejoue1;
+    private ImageView mBonusRejoue2;
+    private ImageView mBonusRejoue3;
+    private ImageView mBonusRejoue4;
+    private ImageView mBonusRejoue5;
+    private ImageView mBonusRejoue6;
+    private ImageView mBonusRejoue7;
+    private ImageView mBonusDeSupplementaire1;
+    private ImageView mBonusDeSupplementaire2;
+    private ImageView mBonusDeSupplementaire3;
+    private ImageView mBonusDeSupplementaire4;
+    private ImageView mBonusDeSupplementaire5;
+    private ImageView mBonusDeSupplementaire6;
+    private ImageView mBonusDeSupplementaire7;
 
     private boolean desLances = false;
     private boolean dePlateauAChoisir = false;
@@ -205,6 +218,29 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mTour2Bonus.setVisibility(View.INVISIBLE);
         mTour3Bonus.setVisibility(View.INVISIBLE);
         mTour4Bonus.setVisibility(View.INVISIBLE);
+
+        // Bonus
+        ImageView bonusRejoue = findViewById(R.id.bonus_rejoue);
+        bonusRejoue.setOnClickListener(this);
+        bonusRejoue.setTag("bonus_rejoue");
+        mBonusRejoue1 = findViewById(R.id.bonus_rejoue_1);
+        mBonusRejoue2 = findViewById(R.id.bonus_rejoue_2);
+        mBonusRejoue3 = findViewById(R.id.bonus_rejoue_3);
+        mBonusRejoue4 = findViewById(R.id.bonus_rejoue_4);
+        mBonusRejoue5 = findViewById(R.id.bonus_rejoue_5);
+        mBonusRejoue6 = findViewById(R.id.bonus_rejoue_6);
+        mBonusRejoue7 = findViewById(R.id.bonus_rejoue_7);
+
+        ImageView bonusDeSupplementaire = findViewById(R.id.bonus_de_supplementaire);
+        bonusDeSupplementaire.setOnClickListener(this);
+        bonusDeSupplementaire.setTag("bonus_de_supplementaire");
+        mBonusDeSupplementaire1 = findViewById(R.id.bonus_de_supplementaire_1);
+        mBonusDeSupplementaire2 = findViewById(R.id.bonus_de_supplementaire_2);
+        mBonusDeSupplementaire3 = findViewById(R.id.bonus_de_supplementaire_3);
+        mBonusDeSupplementaire4 = findViewById(R.id.bonus_de_supplementaire_4);
+        mBonusDeSupplementaire5 = findViewById(R.id.bonus_de_supplementaire_5);
+        mBonusDeSupplementaire6 = findViewById(R.id.bonus_de_supplementaire_6);
+        mBonusDeSupplementaire7 = findViewById(R.id.bonus_de_supplementaire_7);
 
         // Boutons
         ImageView mLanceDes = findViewById(R.id.lance_des);
@@ -559,6 +595,23 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        // Bonus relance des dés
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("bonus_rejoue")) {
+            // Si bonus dispo
+            if (desLances && !dePlateauAChoisir && !caseAChoisir && utilise_bonus_rejoue())
+                lance_des();
+            else
+                Toast.makeText(this, "Bonus indisponible", Toast.LENGTH_SHORT).show();
+        }
+
+        // Bonus choix d'un dé supplémentaire
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("bonus_de_supplementaire")) {
+            if (dePlateauAChoisir && !caseAChoisir && utilise_bonus_de_supplementaire())
+                de_supplementaire();
+            else
+                Toast.makeText(this, "Bonus indisponible", Toast.LENGTH_SHORT).show();
+        }
+
         // Bouton pour lancer les dés
         if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("LancerDes")) {
             if (desLances)
@@ -598,6 +651,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         // Bouton pour quitter
         if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("Quitter"))
             finish();
+
+        // Après un click, on met à jour le score
         calcul_score_total();
     }
 
@@ -607,14 +662,17 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             case 2:
                 mTour2.setVisibility(View.VISIBLE);
                 mTour2Bonus.setVisibility(View.VISIBLE);
+                active_bonus_de_supplementaire();
                 break;
             case 3:
                 mTour3.setVisibility(View.VISIBLE);
                 mTour3Bonus.setVisibility(View.VISIBLE);
+                active_bonus_rejoue();
                 break;
             case 4:
                 mTour4.setVisibility(View.VISIBLE);
                 mTour4Bonus.setVisibility(View.VISIBLE);
+                // active_bonus_croix_et_6();
                 break;
             case 5:
                 mTour5.setVisibility(View.VISIBLE);
@@ -1064,4 +1122,119 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, "Ce dé ne convient pas", Toast.LENGTH_SHORT).show();
     }
 
+    // Utilise le bonus relance les dés
+    private boolean utilise_bonus_rejoue() {
+        boolean retour=false;
+        int index;
+
+        for(index=0; index<tableauBonusRejoue.length;index++) {
+            if (tableauBonusRejoue[index]==0) {
+                tableauBonusRejoue[index]=1;
+                retour=true;
+                break;
+            }
+        }
+
+        if(retour)
+            affiche_bonus_rejoue(index, R.drawable.tres_fute_bonus_actif_utilise);
+
+        return retour;
+    }
+
+    private void active_bonus_rejoue() {
+        int index;
+
+        for(index=0; index<tableauBonusRejoue.length;index++) {
+            if (tableauBonusRejoue[index]==-1)
+                break;
+        }
+        affiche_bonus_rejoue(index, R.drawable.tres_fute_bonus_actif);
+    }
+
+    private void affiche_bonus_rejoue(int position, int ressource) {
+        switch (position) {
+            case 0:
+                mBonusRejoue1.setImageResource(ressource);
+                break;
+            case 1:
+                mBonusRejoue2.setImageResource(ressource);
+                break;
+            case 2:
+                mBonusRejoue3.setImageResource(ressource);
+                break;
+            case 3:
+                mBonusRejoue4.setImageResource(ressource);
+                break;
+            case 4:
+                mBonusRejoue5.setImageResource(ressource);
+                break;
+            case 5:
+                mBonusRejoue6.setImageResource(ressource);
+                break;
+            case 6:
+                mBonusRejoue7.setImageResource(ressource);
+                break;
+        }
+    }
+
+    // Utilise le bonus relance les dés
+    private boolean utilise_bonus_de_supplementaire() {
+        boolean retour=false;
+        int index;
+
+        for(index=0; index<tableauBonusDeSupplementaire.length;index++) {
+            if (tableauBonusDeSupplementaire[index]==0) {
+                tableauBonusDeSupplementaire[index]=1;
+                retour=true;
+                break;
+            }
+        }
+
+        if(retour)
+            affiche_bonus_de_supplementaire(index, R.drawable.tres_fute_bonus_actif_utilise);
+
+        return retour;
+    }
+
+    private void active_bonus_de_supplementaire() {
+        int index;
+
+        for(index=0; index<tableauBonusDeSupplementaire.length;index++) {
+            if (tableauBonusDeSupplementaire[index]==-1)
+                break;
+        }
+
+        affiche_bonus_de_supplementaire(index, R.drawable.tres_fute_bonus_actif);
+    }
+
+    private void affiche_bonus_de_supplementaire(int position, int ressource) {
+        switch (position) {
+            case 0:
+                mBonusDeSupplementaire1.setImageResource(ressource);
+                break;
+            case 1:
+                mBonusDeSupplementaire2.setImageResource(ressource);
+                break;
+            case 2:
+                mBonusDeSupplementaire3.setImageResource(ressource);
+                break;
+            case 3:
+                mBonusDeSupplementaire4.setImageResource(ressource);
+                break;
+            case 4:
+                mBonusDeSupplementaire5.setImageResource(ressource);
+                break;
+            case 5:
+                mBonusDeSupplementaire6.setImageResource(ressource);
+                break;
+            case 6:
+                mBonusDeSupplementaire7.setImageResource(ressource);
+                break;
+        }
+    }
+
+
+    private void de_supplementaire() {
+
+    }
 }

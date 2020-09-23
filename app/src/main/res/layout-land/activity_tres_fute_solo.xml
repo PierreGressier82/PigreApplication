@@ -1250,13 +1250,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_1_bonus"
                         android:src="@drawable/tres_fute_bonus_relance"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -1264,13 +1264,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="0dp"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_2_bonus"
                         android:src="@drawable/tres_fute_bonus_plus1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -1278,33 +1278,33 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="0dp"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_3_bonus"
                         android:src="@drawable/tres_fute_bonus_relance"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_4_bonus"
                         android:src="@drawable/tres_fute_croix_et_6"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="20dp"/>
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_5_bonus"
@@ -1316,7 +1316,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".17"
-                    android:textAlignment="center">
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/tour_6_bonus"
