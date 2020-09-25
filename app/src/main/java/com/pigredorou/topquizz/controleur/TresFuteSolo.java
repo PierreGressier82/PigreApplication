@@ -28,6 +28,7 @@ import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauVert;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauOrange;
 import static com.pigredorou.topquizz.modele.ImageViewTresFute.tableauViolet;
 
+
 public class TresFuteSolo extends AppCompatActivity implements View.OnClickListener {
     //public static int[][] tableauJaune = {{3,6,5,0},{2,1,0,5},{1,0,2,4},{0,3,4,6}};
     //public static int[][] tableauBleu = {{1,1,1,1},{1,2,3,4},{5,6,7,8},{9,10,11,12}};
@@ -38,18 +39,27 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     //private static int[] tableauScoreColonneJaune = {10,14,16,20};
     //private static int[] tableauScoreColonneBleu = {0,1,2,4,7,11,16,22,29,37,46,56};
     //private static int[] tableauScoreColonneVert = {0,1,3,6,10,15,21,28,36,45,55,66};
+    //private static final int BONUS_DE=7;
+    //private static final int BONUS_REJOUE=8;
+    //private static final int BONUS_RENARD=9;
+    //private static final int BONUS_LIBRE=10; // Bonus qui permet de choisir la case de son choix
 
+    // Tableaux qui permettent d'enregistrer l'état des cases par couleur
     private int[][] tableauClickJaune = {{3, 6, 5, 0}, {2, 1, 0, 5}, {1, 0, 2, 4}, {0, 3, 4, 6}};
     private int[][] tableauClickBleu = {{1, 1, 1, 1}, {1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     private int[] tableauClickVert = tableauVert.clone();
     private int[] tableauClickOrange = tableauOrange.clone();
     private int[] tableauClickViolet = tableauViolet.clone();
 
+    // Tableaux qui permettent d'avoir les cases "cochables"
     private ImageViewTresFute[][] CasesJaunes = new ImageViewTresFute[3][7]; // Première ligne et première colonne non utilisées
     private ImageViewTresFute[] CasesBleues = new ImageViewTresFute[12];
     private ImageViewTresFute[] CasesVertes = new ImageViewTresFute[12];
     private ImageViewTresFute[] CasesOranges = new ImageViewTresFute[12];
     private ImageViewTresFute[] CasesViolettes = new ImageViewTresFute[12];
+
+    // Tableaux pour les bonus
+    //private int[] getTableauBonusVert = {0,0,0,BONUS_DE,0,BLEU,}
 
     private int[] DeActifs = {1, 1, 1, 1, 1, 1}; // Tous les dés sont actifs par defaut
     private int[] ValeurDes = {0, 0, 0, 0, 0, 0};
@@ -501,6 +511,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 case VERT:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickVert[colonne] = imageClick.getValeur();
+                    active_bonus_vert(colonne);
                     break;
                 case ORANGE:
                     imageClick.onClick(ValeurDes[BLANC]);
@@ -644,10 +655,10 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 LanceDe++;
                 desLances = false;
                 dePlateauAChoisir = true;
-            }
-            else
+            } else
                 dePlateauAChoisir = false;
         }
+
         // Bouton pour quitter
         if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("Quitter"))
             finish();
@@ -929,7 +940,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private boolean utilise_de_blanc(int valeurBlanc, int valeurBleu) {
         int nbCases = 0;
         int index;
-        ImageViewTresFute caseTrouve=null;
+        ImageViewTresFute caseTrouve = null;
 
         // Jaune
         ImageViewTresFute caseJaune1 = CasesJaunes[1][valeurBlanc];
@@ -937,19 +948,19 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (caseJaune1.getValeur() != 0) {
             caseJaune1.setClickable(true);
             nbCases++;
-            caseTrouve=caseJaune1;
+            caseTrouve = caseJaune1;
         }
         if (caseJaune2.getValeur() != 0) {
             caseJaune2.setClickable(true);
             nbCases++;
-            caseTrouve=caseJaune2;
+            caseTrouve = caseJaune2;
         }
         // Bleu
         ImageViewTresFute caseBleu = CasesBleues[valeurBleu + valeurBlanc - 1];
         if (caseBleu.getValeur() != 0) {
             caseBleu.setClickable(true);
             nbCases++;
-            caseTrouve=caseBleu;
+            caseTrouve = caseBleu;
         }
         // Vert
         for (index = 1; index < tableauClickVert.length; index++) {
@@ -959,7 +970,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickVert.length && valeurBlanc >= tableauClickVert[index]) {
             CasesVertes[index].setClickable(true);
             nbCases++;
-            caseTrouve=CasesVertes[index];
+            caseTrouve = CasesVertes[index];
         }
         // Orange
         for (index = 1; index < tableauClickOrange.length; index++) {
@@ -969,7 +980,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickOrange.length) {
             CasesOranges[index].setClickable(true);
             nbCases++;
-            caseTrouve=CasesOranges[index];
+            caseTrouve = CasesOranges[index];
         }
         // Violet
         for (index = 1; index < tableauClickViolet.length; index++) {
@@ -979,7 +990,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickViolet.length && valeurBlanc > tableauClickViolet[index - 1] % 6) {
             CasesViolettes[index].setClickable(true);
             nbCases++;
-            caseTrouve=CasesViolettes[index];
+            caseTrouve = CasesViolettes[index];
         }
 
         switch (nbCases) {
@@ -989,7 +1000,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             case 1:
                 if (caseTrouve != null)
                     if (caseTrouve.getCouleur() == BLEU)
-                        caseTrouve.onClick(valeurBlanc+valeurBleu);
+                        caseTrouve.onClick(valeurBlanc + valeurBleu);
                     else
                         caseTrouve.onClick(valeurBlanc);
                 break;
@@ -1065,11 +1076,14 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+
         System.out.println("utilise_de_vert : " + index + " - " + valeur + " - " + retour);
 
         if (retour && index < tableauClickVert.length) {
             tableauClickVert[index] = 0;
             CasesVertes[index].onClick(valeur);
+            //Gestion des bonus vert
+            active_bonus_vert(index);
         } else
             affiche_message_non_autorise();
 
@@ -1124,18 +1138,18 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     // Utilise le bonus relance les dés
     private boolean utilise_bonus_rejoue() {
-        boolean retour=false;
+        boolean retour = false;
         int index;
 
-        for(index=0; index<tableauBonusRejoue.length;index++) {
-            if (tableauBonusRejoue[index]==0) {
-                tableauBonusRejoue[index]=1;
-                retour=true;
+        for (index = 0; index < tableauBonusRejoue.length; index++) {
+            if (tableauBonusRejoue[index] == 0) {
+                tableauBonusRejoue[index] = 1;
+                retour = true;
                 break;
             }
         }
 
-        if(retour)
+        if (retour)
             affiche_bonus_rejoue(index, R.drawable.tres_fute_bonus_actif_utilise);
 
         return retour;
@@ -1144,9 +1158,9 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private void active_bonus_rejoue() {
         int index;
 
-        for(index=0; index<tableauBonusRejoue.length;index++) {
-            if (tableauBonusRejoue[index]==-1) {
-                tableauBonusRejoue[index]=0;
+        for (index = 0; index < tableauBonusRejoue.length; index++) {
+            if (tableauBonusRejoue[index] == -1) {
+                tableauBonusRejoue[index] = 0;
                 break;
             }
         }
@@ -1181,18 +1195,18 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     // Utilise le bonus relance les dés
     private boolean utilise_bonus_de_supplementaire() {
-        boolean retour=false;
+        boolean retour = false;
         int index;
 
-        for(index=0; index<tableauBonusDeSupplementaire.length;index++) {
-            if (tableauBonusDeSupplementaire[index]==0) {
-                tableauBonusDeSupplementaire[index]=1;
-                retour=true;
+        for (index = 0; index < tableauBonusDeSupplementaire.length; index++) {
+            if (tableauBonusDeSupplementaire[index] == 0) {
+                tableauBonusDeSupplementaire[index] = 1;
+                retour = true;
                 break;
             }
         }
 
-        if(retour)
+        if (retour)
             affiche_bonus_de_supplementaire(index, R.drawable.tres_fute_bonus_actif_utilise);
 
         return retour;
@@ -1201,9 +1215,9 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private void active_bonus_de_supplementaire() {
         int index;
 
-        for(index=0; index<tableauBonusDeSupplementaire.length;index++) {
-            if (tableauBonusDeSupplementaire[index]==-1) {
-                tableauBonusDeSupplementaire[index]=0;
+        for (index = 0; index < tableauBonusDeSupplementaire.length; index++) {
+            if (tableauBonusDeSupplementaire[index] == -1) {
+                tableauBonusDeSupplementaire[index] = 0;
                 break;
             }
         }
@@ -1241,4 +1255,30 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private void de_supplementaire() {
 
     }
+
+    private void active_bonus_vert(int colonne) {
+        switch (colonne) {
+            case 4:
+                active_bonus_de_supplementaire();
+                break;
+            case 6:
+                // Permet de choisir une case bleue
+                for (int i = 1; i < CasesBleues.length; i++) {
+                    if (CasesBleues[i].getValeur() != 0) {
+                        CasesBleues[i].setClickable(true);
+                    }
+                }
+                break;
+            case 7:
+                // Case renard, pris en compte dans la fonction calcul_score_rouge
+                break;
+            case 9:
+                utilise_de_violet(6);
+                break;
+            case 10:
+                active_bonus_rejoue();
+                break;
+        }
+    }
+
 }
