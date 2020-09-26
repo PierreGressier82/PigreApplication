@@ -503,10 +503,12 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 case JAUNE:
                     imageClick.onClick(0);
                     tableauClickJaune[imageClick.getLigne()][colonne] = imageClick.getValeur();
+                    active_bonus_jaune(imageClick.getLigne(), colonne);
                     break;
                 case BLEU:
                     imageClick.onClick(0);
                     tableauClickBleu[imageClick.getLigne()][colonne] = imageClick.getValeur();
+                    active_bonus_bleu(imageClick.getLigne(), colonne);
                     break;
                 case VERT:
                     imageClick.onClick(ValeurDes[BLANC]);
@@ -516,10 +518,12 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 case ORANGE:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickOrange[colonne] = imageClick.getValeur();
+                    active_bonus_orange(colonne);
                     break;
                 case VIOLET:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickViolet[colonne] = imageClick.getValeur();
+                    active_bonus_violet(colonne);
                     break;
             }
             stop_click();
@@ -683,7 +687,11 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             case 4:
                 mTour4.setVisibility(View.VISIBLE);
                 mTour4Bonus.setVisibility(View.VISIBLE);
-                // active_bonus_croix_et_6();
+                active_cases_jaunes();
+                active_cases_bleues();
+                active_case_verte();
+                active_case_orange();
+                active_case_violette();
                 break;
             case 5:
                 mTour5.setVisibility(View.VISIBLE);
@@ -941,6 +949,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         int nbCases = 0;
         int index;
         ImageViewTresFute caseTrouve = null;
+        boolean retour=false;
 
         // Jaune
         ImageViewTresFute caseJaune1 = CasesJaunes[1][valeurBlanc];
@@ -1003,13 +1012,15 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                         caseTrouve.onClick(valeurBlanc + valeurBleu);
                     else
                         caseTrouve.onClick(valeurBlanc);
+                retour = true;
                 break;
             default:
                 caseAChoisir = true;
+                retour = true;
                 break;
         }
 
-        return caseAChoisir;
+        return retour;
     }
 
     private boolean utilise_de_jaune(int valeur) {
@@ -1036,10 +1047,12 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             case 1:
                 caseJaune1.onClick(valeur);
                 tableauClickJaune[caseJaune1.getLigne()][caseJaune1.getColonne()] = caseJaune1.getValeur();
+                active_bonus_jaune(caseJaune1.getLigne(),caseJaune1.getColonne());
                 break;
             case 2:
                 caseJaune2.onClick(valeur);
                 tableauClickJaune[caseJaune2.getLigne()][caseJaune2.getColonne()] = caseJaune2.getValeur();
+                active_bonus_jaune(caseJaune2.getLigne(),caseJaune2.getColonne());
                 break;
             default:
                 caseJaune1.setClickable(true);
@@ -1058,6 +1071,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (caseBleu.getValeur() != 0) {
             caseBleu.onClick(0);
             tableauClickBleu[caseBleu.getLigne()][caseBleu.getColonne()] = 0;
+            active_bonus_bleu(caseBleu.getLigne(),caseBleu.getColonne());
             retour = true;
         } else
             affiche_message_non_autorise();
@@ -1104,6 +1118,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickOrange.length) {
             tableauClickOrange[index] = valeur;
             CasesOranges[index].onClick(valeur);
+            active_bonus_orange(index);
             retour = true;
         } else
             affiche_message_non_autorise();
@@ -1125,6 +1140,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         if (index < tableauClickViolet.length && valeur > tableauClickViolet[index - 1] % 6) {
             tableauClickViolet[index] = valeur;
             CasesViolettes[index].onClick(valeur);
+            active_bonus_violet(index);
             retour = true;
         } else
             affiche_message_non_autorise();
@@ -1256,18 +1272,108 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // On ne verifie que la ligne et la colonne qui a été changée (+ diagonale)
+    private void active_bonus_jaune(int ligne, int colonne) {
+        boolean isOK=true;
+
+        // Diagonale
+        if (ligne == colonne) {
+            for (int i=1; i<tableauClickJaune.length; i++) {
+                if (tableauClickJaune[i][i] != 0) {
+                    isOK = false;
+                    break;
+                }
+            }
+            if(isOK)
+                active_bonus_de_supplementaire();
+        }
+
+        // Lignes
+        isOK=true;
+        for (int i = 1; i < tableauClickJaune.length; i++) {
+            if (tableauClickJaune[ligne][i] != 0) {
+              isOK=false;
+            }
+        }
+        if (isOK) {
+            switch (ligne) {
+                case 0 :
+                    active_cases_bleues();
+                    break;
+                case 1 :
+                    utilise_de_orange(4);
+                    break;
+                case 2 :
+                    utilise_de_vert(6);
+                    break;
+                case 3 :
+                    // Renard pris en compte par la fonction score
+                    break;
+            }
+        }
+    }
+
+    // On ne verifie que la ligne et la colonne qui a été changée (+ diagonale)
+    private void active_bonus_bleu(int ligne, int colonne) {
+        boolean isOK=true;
+
+        // On change la valeur de la première case pour faciliter la recherche
+        tableauClickBleu[1][0]=0;
+
+        // Lignes
+        for (int i=1; i<tableauClickBleu[ligne].length; i++)
+            if (tableauClickBleu[ligne][i] != 0) {
+                isOK = false;
+                break;
+            }
+        if (isOK) {
+            switch (ligne) {
+                case 1 :
+                    utilise_de_orange(5);
+                    break;
+                case 2 :
+                    active_cases_jaunes();
+                    break;
+                case 3 :
+                    // Renard
+                    break;
+            }
+        }
+
+        // Colonnes
+        isOK=true;
+        for (int i=1; i<tableauClickBleu[ligne].length; i++)
+            if (tableauClickBleu[i][colonne] != 0) {
+                isOK = false;
+                break;
+            }
+        if (isOK) {
+            switch (colonne) {
+                case 0 :
+                    active_bonus_rejoue();
+                    break;
+                case 1 :
+                    utilise_de_vert(6);
+                    break;
+                case 2 :
+                    utilise_de_violet(6);
+                    break;
+                case 3 :
+                    active_bonus_de_supplementaire();
+                    break;
+            }
+        }
+        // On remet l'ancienne valeur
+        tableauClickBleu[1][0]=1;
+    }
+
     private void active_bonus_vert(int colonne) {
         switch (colonne) {
             case 4:
                 active_bonus_de_supplementaire();
                 break;
             case 6:
-                // Permet de choisir une case bleue
-                for (int i = 1; i < CasesBleues.length; i++) {
-                    if (CasesBleues[i].getValeur() != 0) {
-                        CasesBleues[i].setClickable(true);
-                    }
-                }
+                active_cases_bleues();
                 break;
             case 7:
                 // Case renard, pris en compte dans la fonction calcul_score_rouge
@@ -1281,4 +1387,99 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void active_bonus_orange(int colonne) {
+        switch (colonne) {
+            case 3:
+                active_bonus_rejoue();
+                break;
+            case 5:
+                active_cases_jaunes();
+                break;
+            case 6:
+                active_bonus_de_supplementaire();
+                break;
+            case 8:
+                // Case renard, pris en compte dans la fonction calcul_score_rouge
+                break;
+            case 10:
+                utilise_de_violet(6);
+                break;
+        }
+    }
+
+    private void active_bonus_violet(int colonne) {
+        switch (colonne) {
+            case 3:
+            case 8:
+                active_bonus_rejoue();
+                break;
+            case 4:
+                active_cases_bleues();
+                break;
+            case 5:
+            case 11:
+                active_bonus_de_supplementaire();
+                break;
+            case 6:
+                active_cases_jaunes();
+                break;
+            case 7:
+                // Case renard, pris en compte dans la fonction calcul_score_rouge
+                break;
+            case 9:
+                utilise_de_vert(6);
+                break;
+            case 10:
+                utilise_de_orange(6);
+                break;
+        }
+    }
+
+    private void active_cases_bleues() {
+        for (int i = 1; i < CasesBleues.length; i++) {
+            if (CasesBleues[i].getValeur() != 0) {
+                CasesBleues[i].setClickable(true);
+                caseAChoisir=true;
+            }
+        }
+    }
+
+    private void active_cases_jaunes() {
+        for (int i = 1; i < CasesJaunes.length; i++)
+            for (int j = 1; j < CasesJaunes[i].length; j++)
+                if (CasesJaunes[i][j].getValeur() != 0) {
+                    CasesJaunes[i][j].setClickable(true);
+                    caseAChoisir=true;
+                }
+    }
+
+    private void active_case_verte() {
+        // Active la première case possible
+        for (int i=1; i<CasesVertes.length;i++)
+            if (CasesVertes[i].getValeur() != 0) {
+                CasesVertes[i].setClickable(true);
+                caseAChoisir=true;
+                break;
+            }
+    }
+
+    private void active_case_orange() {
+        // Active la première case possible
+        for (int i=1; i<CasesOranges.length;i++)
+            if (CasesOranges[i].getValeur() != 0) {
+                CasesOranges[i].setClickable(true);
+                caseAChoisir=true;
+                break;
+            }
+    }
+
+    private void active_case_violette() {
+        // Active la première case possible
+        for (int i=1; i<CasesViolettes.length;i++)
+            if (CasesViolettes[i].getValeur() != 0) {
+                CasesViolettes[i].setClickable(true);
+                caseAChoisir=true;
+                break;
+            }
+    }
 }

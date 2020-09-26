@@ -56,8 +56,7 @@ public class TresFuteTools {
         return clickOK ;
     }
 
-    public static int calcul_score_jaune(int[][] tableauClickJaune)
-    {
+    public static int calcul_score_jaune(int[][] tableauClickJaune) {
         int colonneOK=1;
         //int ligneOK=1;
         int score=0;
@@ -82,27 +81,10 @@ public class TresFuteTools {
             colonneOK=1;
         }
 
-        //for (int index1 = 0; index1 < tableauClickJaune.length; index1++) {
-        //    for (int index2 = 0; index2 < tableauClickJaune[index1].length; index2++) {
-        //        if (tableauClickJaune[index1][index2] != 0) {
-        //            ligneOK = 0;
-        //            break;
-        //        }
-        //    }
-//
-        //    if (ligneOK == 1) {
-        //      // Implementer ici si ligne OK
-//
-        //    }
-//
-        //    ligneOK=1;
-        //}
-
         return score;
     }
 
-    public static int calcul_score_bleu(int[][] tableauClickBleu)
-    {
+    public static int calcul_score_bleu(int[][] tableauClickBleu) {
         int score;
         int nbCroix=0;
 
@@ -118,8 +100,7 @@ public class TresFuteTools {
         return score;
     }
 
-    public static int calcul_score_vert(int[] tableauClickVert)
-    {
+    public static int calcul_score_vert(int[] tableauClickVert) {
         int score;
         int nbCroix=0;
 
@@ -132,18 +113,15 @@ public class TresFuteTools {
         return score;
     }
 
-    public static int calcul_score_orange(int[] tableauOrange)
-    {
+    public static int calcul_score_orange(int[] tableauOrange) {
         return calcul_score_a_point(tableauOrange);
     }
 
-    public static int calcul_score_violet(int[] tableauViolet)
-    {
+    public static int calcul_score_violet(int[] tableauViolet) {
         return calcul_score_a_point(tableauViolet);
     }
 
-    private static int calcul_score_a_point(int[] tableauAPoints)
-    {
+    private static int calcul_score_a_point(int[] tableauAPoints) {
         int score=0;
 
         for (int ints : tableauAPoints) {

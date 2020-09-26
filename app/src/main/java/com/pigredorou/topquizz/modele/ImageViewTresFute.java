@@ -229,7 +229,7 @@ public class ImageViewTresFute extends androidx.appcompat.widget.AppCompatImageV
                 onClickValeur(3*valeurDe);
                 break;
             default:
-                onClickValeur(1*valeurDe);
+                onClickValeur(valeurDe);
                 break;
         }
     }
