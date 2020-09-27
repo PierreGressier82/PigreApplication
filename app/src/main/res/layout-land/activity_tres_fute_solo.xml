@@ -48,7 +48,7 @@
                                 android:id="@+id/ligne1Jaune"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center"
                                 android:padding="3dp"
                                 android:paddingHorizontal="2dp">
@@ -213,7 +213,8 @@
                                     android:id="@+id/ligne4JauneCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_renard_rouge"/>
                             </TableRow>
 
                             <TableRow
@@ -403,7 +404,8 @@
                                     android:id="@+id/ligne4bleuCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_renard_rouge"/>
                             </TableRow>
 
                             <TableRow
@@ -474,7 +476,7 @@
                             android:id="@+id/tableVert"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            android:background="@drawable/tres_fute_carre_vert"
+                            android:background="@drawable/tres_fute_carre_vert2"
                             android:outlineSpotShadowColor="@color/vert">
 
                             <TableRow
@@ -570,7 +572,7 @@
                             android:id="@+id/tableOrange"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/tres_fute_carre_orange"
+                            android:background="@drawable/tres_fute_carre_orange2"
                             android:outlineSpotShadowColor="@color/orange">
 
                             <TableRow
@@ -666,7 +668,7 @@
                             android:id="@+id/tableViolet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/tres_fute_carre_violet"
+                            android:background="@drawable/tres_fute_carre_violet2"
                             android:outlineSpotShadowColor="@color/violet">
 
                             <TableRow
@@ -912,7 +914,7 @@
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
-                        android:background="@drawable/tres_fute_case_blanche"
+                        android:background="@color/noir"
                         android:contentDescription="@string/d_choisi_au_premier_tour" />
                 </RelativeLayout>
 
@@ -929,7 +931,7 @@
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
-                        android:background="@drawable/tres_fute_case_blanche"
+                        android:background="@color/noir"
                         android:contentDescription="@string/d_choisi_au_second_tour" />
                 </RelativeLayout>
 
@@ -946,7 +948,7 @@
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textColor="@color/blanc"
-                        android:background="@drawable/tres_fute_case_blanche"
+                        android:background="@color/noir"
                         android:contentDescription="@string/d_choisi_au_troisi_me_tour" />
                 </RelativeLayout>
             </LinearLayout>

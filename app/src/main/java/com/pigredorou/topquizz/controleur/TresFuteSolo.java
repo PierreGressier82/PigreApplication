@@ -66,6 +66,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private int[] tableauBonusRejoue = {0, -1, -1, -1, -1, -1, -1};
     private int[] tableauBonusDeSupplementaire = {-1, -1, -1, -1, -1, -1, -1};
     private int LanceDe = 1;
+    private int[] CouleurLanceDe = {0, 0, 0};
     private int tour = 1;
 
     private int[] couleursRessource = new int[6];
@@ -209,6 +210,12 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mDeLance1 = findViewById(R.id.de_lance_1);
         mDeLance2 = findViewById(R.id.de_lance_2);
         mDeLance3 = findViewById(R.id.de_lance_3);
+        mDeLance1.setOnClickListener(this);
+        mDeLance2.setOnClickListener(this);
+        mDeLance3.setOnClickListener(this);
+        mDeLance1.setTag("PlateauLance1");
+        mDeLance2.setTag("PlateauLance2");
+        mDeLance3.setTag("PlateauLance3");
 
         // Manches
         mTour2 = findViewById(R.id.tour_2);
@@ -231,8 +238,6 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
         // Bonus
         ImageView bonusRejoue = findViewById(R.id.bonus_rejoue);
-        bonusRejoue.setOnClickListener(this);
-        bonusRejoue.setTag("bonus_rejoue");
         mBonusRejoue1 = findViewById(R.id.bonus_rejoue_1);
         mBonusRejoue2 = findViewById(R.id.bonus_rejoue_2);
         mBonusRejoue3 = findViewById(R.id.bonus_rejoue_3);
@@ -240,10 +245,24 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mBonusRejoue5 = findViewById(R.id.bonus_rejoue_5);
         mBonusRejoue6 = findViewById(R.id.bonus_rejoue_6);
         mBonusRejoue7 = findViewById(R.id.bonus_rejoue_7);
+        bonusRejoue.setOnClickListener(this);
+        mBonusRejoue1.setOnClickListener(this);
+        mBonusRejoue2.setOnClickListener(this);
+        mBonusRejoue3.setOnClickListener(this);
+        mBonusRejoue4.setOnClickListener(this);
+        mBonusRejoue5.setOnClickListener(this);
+        mBonusRejoue6.setOnClickListener(this);
+        mBonusRejoue7.setOnClickListener(this);
+        bonusRejoue.setTag("bonus_rejoue");
+        mBonusRejoue1.setTag("bonus_rejoue_1");
+        mBonusRejoue2.setTag("bonus_rejoue_2");
+        mBonusRejoue3.setTag("bonus_rejoue_3");
+        mBonusRejoue4.setTag("bonus_rejoue_4");
+        mBonusRejoue5.setTag("bonus_rejoue_5");
+        mBonusRejoue6.setTag("bonus_rejoue_6");
+        mBonusRejoue7.setTag("bonus_rejoue_7");
 
         ImageView bonusDeSupplementaire = findViewById(R.id.bonus_de_supplementaire);
-        bonusDeSupplementaire.setOnClickListener(this);
-        bonusDeSupplementaire.setTag("bonus_de_supplementaire");
         mBonusDeSupplementaire1 = findViewById(R.id.bonus_de_supplementaire_1);
         mBonusDeSupplementaire2 = findViewById(R.id.bonus_de_supplementaire_2);
         mBonusDeSupplementaire3 = findViewById(R.id.bonus_de_supplementaire_3);
@@ -251,6 +270,22 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         mBonusDeSupplementaire5 = findViewById(R.id.bonus_de_supplementaire_5);
         mBonusDeSupplementaire6 = findViewById(R.id.bonus_de_supplementaire_6);
         mBonusDeSupplementaire7 = findViewById(R.id.bonus_de_supplementaire_7);
+        bonusDeSupplementaire.setOnClickListener(this);
+        mBonusDeSupplementaire1.setOnClickListener(this);
+        mBonusDeSupplementaire2.setOnClickListener(this);
+        mBonusDeSupplementaire3.setOnClickListener(this);
+        mBonusDeSupplementaire4.setOnClickListener(this);
+        mBonusDeSupplementaire5.setOnClickListener(this);
+        mBonusDeSupplementaire6.setOnClickListener(this);
+        mBonusDeSupplementaire7.setOnClickListener(this);
+        bonusDeSupplementaire.setTag("bonus_de_supplementaire");
+        mBonusDeSupplementaire1.setTag("bonus_de_supplementaire_1");
+        mBonusDeSupplementaire2.setTag("bonus_de_supplementaire_2");
+        mBonusDeSupplementaire3.setTag("bonus_de_supplementaire_3");
+        mBonusDeSupplementaire4.setTag("bonus_de_supplementaire_4");
+        mBonusDeSupplementaire5.setTag("bonus_de_supplementaire_5");
+        mBonusDeSupplementaire6.setTag("bonus_de_supplementaire_6");
+        mBonusDeSupplementaire7.setTag("bonus_de_supplementaire_7");
 
         // Boutons
         ImageView mLanceDes = findViewById(R.id.lance_des);
@@ -585,7 +620,44 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Dé plateau possible uniquement en fin de tour", Toast.LENGTH_SHORT).show();
             else {
                 boolean deOK = false;
-                switch (v.getTag().toString()) {
+                int tour=-1;
+                String tag = v.getTag().toString();
+                switch (tag) {
+                    case "PlateauLance1":
+                        tour=0;
+                        break;
+                    case "PlateauLance2":
+                        tour=1;
+                        break;
+                    case "PlateauLance3":
+                        tour=2;
+                        break;
+                }
+
+                if (tour>=0) {
+                    switch (CouleurLanceDe[tour]) {
+                        case BLANC:
+                            tag="PlateauDeBlanc";
+                            break;
+                        case JAUNE:
+                            tag="PlateauDeJaune";
+                            break;
+                        case BLEU:
+                            tag="PlateauDeBleu";
+                            break;
+                        case VERT:
+                            tag="PlateauDeVert";
+                            break;
+                        case ORANGE:
+                            tag="PlateauDeOrange";
+                            break;
+                        case VIOLET:
+                            tag="PlateauDeViolet";
+                            break;
+                    }
+                }
+
+                switch (tag) {
                     case "PlateauDeBlanc":
                         deOK = utilise_de_blanc(ValeurDes[BLANC], ValeurDes[BLEU]);
                         break;
@@ -611,7 +683,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
 
         // Bonus relance des dés
-        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("bonus_rejoue")) {
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().startsWith("bonus_rejoue")) {
             // Si bonus dispo
             if (desLances && !dePlateauAChoisir && !caseAChoisir && utilise_bonus_rejoue())
                 lance_des();
@@ -620,8 +692,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
 
         // Bonus choix d'un dé supplémentaire
-        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().equals("bonus_de_supplementaire")) {
-            if (dePlateauAChoisir && !caseAChoisir && utilise_bonus_de_supplementaire())
+        if (v.getClass().toString().endsWith("ImageView") && v.getTag().toString().startsWith("bonus_de_supplementaire")) {
+            if (LanceDe == 4 && !dePlateauAChoisir && !caseAChoisir && utilise_bonus_de_supplementaire())
                 de_supplementaire();
             else
                 Toast.makeText(this, "Bonus indisponible", Toast.LENGTH_SHORT).show();
@@ -821,6 +893,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         DeActifs[couleur] = 0;
 
         masque_de(couleur);
+        // Sauvegarde la couleur du lancé
+        CouleurLanceDe[LanceDe-1]=couleur;
 
         // Mise de côte du dé
         switch (LanceDe) {
@@ -923,7 +997,8 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     private void active_tous_des() {
         Arrays.fill(DeActifs, 1);
-        //Arrays.fill(ValeurDesPlateau, 0);
+        // Sauvegarde la couleur du lancé
+        Arrays.fill(CouleurLanceDe, 0);
 
         mDeJaune.setVisibility(View.VISIBLE);
         mDeBleu.setVisibility(View.VISIBLE);
@@ -1269,7 +1344,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
 
     private void de_supplementaire() {
-
+        dePlateauAChoisir=true;
     }
 
     // On ne verifie que la ligne et la colonne qui a été changée (+ diagonale)
@@ -1278,7 +1353,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
         // Diagonale
         if (ligne == colonne) {
-            for (int i=1; i<tableauClickJaune.length; i++) {
+            for (int i=0; i<tableauClickJaune.length; i++) {
                 if (tableauClickJaune[i][i] != 0) {
                     isOK = false;
                     break;
@@ -1290,9 +1365,10 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
         // Lignes
         isOK=true;
-        for (int i = 1; i < tableauClickJaune.length; i++) {
+        for (int i=0; i<tableauClickJaune.length; i++) {
             if (tableauClickJaune[ligne][i] != 0) {
-              isOK=false;
+                isOK = false;
+                break;
             }
         }
         if (isOK) {
@@ -1321,7 +1397,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         tableauClickBleu[1][0]=0;
 
         // Lignes
-        for (int i=1; i<tableauClickBleu[ligne].length; i++)
+        for (int i=0; i<tableauClickBleu[ligne].length; i++)
             if (tableauClickBleu[ligne][i] != 0) {
                 isOK = false;
                 break;
