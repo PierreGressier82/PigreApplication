@@ -53,10 +53,6 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
     private TextView mscoreRouge;
     private TextView mscoreTotal;
 
-    private ImageView mRAZ;
-    private ImageView mUndo;
-    private ImageView mExit;
-
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,15 +81,15 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
         mscoreTotal = findViewById(R.id.score_total);
 
         // Boutons
-        mRAZ = findViewById(R.id.raz);
-        mUndo = findViewById(R.id.undo);
-        mExit = findViewById(R.id.exit);
-        mRAZ.setOnClickListener(this);
-        mUndo.setOnClickListener(this);
-        mExit.setOnClickListener(this);
-        mRAZ.setTag("raz");
-        mUndo.setTag("undo");
-        mExit.setTag("exit");
+        ImageView RAZ = findViewById(R.id.raz);
+        ImageView undo = findViewById(R.id.undo);
+        ImageView exit = findViewById(R.id.exit);
+        RAZ.setOnClickListener(this);
+        undo.setOnClickListener(this);
+        exit.setOnClickListener(this);
+        RAZ.setTag("raz");
+        undo.setTag("undo");
+        exit.setTag("exit");
 
         // Definition des couleurs
         setTableauJaune();
@@ -436,7 +432,10 @@ public class TresFuteScore extends AppCompatActivity implements View.OnClickList
                         valeurColonneSuiv=0;
 
                     if (TresFuteTools.isClickPossibleChiffres(colonne, valeurColonnePrec, valeurColonneSuiv) == 1) {
-                        imageClick.onClick(0);
+                        int modulo6=1;
+                        if (tableauClickOrange[colonne] == 0 && tableauClickOrange[colonne-1] != 6) // Ajout uniquement si case vide
+                            modulo6 = (imageClick.getValeur()+1)%7;
+                        imageClick.onClick(modulo6);
                         tableauClickOrange[colonne] = imageClick.getValeur();
                     }
                     break;

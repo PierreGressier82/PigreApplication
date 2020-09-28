@@ -135,7 +135,8 @@
                                     android:id="@+id/ligne2JauneCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_4_orange"/>
                             </TableRow>
 
                             <TableRow
@@ -173,7 +174,8 @@
                                     android:id="@+id/ligne3JauneCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_vert"/>
                             </TableRow>
 
                             <TableRow
@@ -211,7 +213,8 @@
                                     android:id="@+id/ligne4JauneCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_renard_rouge"/>
                             </TableRow>
 
                             <TableRow
@@ -249,7 +252,8 @@
                                     android:id="@+id/ligne5JauneCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_plus1"/>
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -322,7 +326,8 @@
                                     android:id="@+id/ligne2bleuCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_5_orange"/>
                             </TableRow>
 
                             <TableRow
@@ -360,7 +365,8 @@
                                     android:id="@+id/ligne3bleuCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_bonus_jaune"/>
                             </TableRow>
 
                             <TableRow
@@ -398,7 +404,8 @@
                                     android:id="@+id/ligne4bleuCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="5dp" />
+                                    android:layout_marginStart="5dp"
+                                    android:src="@drawable/tres_fute_renard_rouge"/>
                             </TableRow>
 
                             <TableRow
@@ -410,29 +417,36 @@
 
                                 <ImageView
                                     android:id="@+id/ligne5bleuCase1"
-                                    android:layout_width="33dp"
-                                    android:layout_height="33dp" />
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_relance"/>
 
                                 <ImageView
                                     android:id="@+id/ligne5bleuCase2"
-                                    android:layout_width="33dp"
-                                    android:layout_height="33dp" />
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_vert"/>
 
                                 <ImageView
                                     android:id="@+id/ligne5bleuCase3"
-                                    android:layout_width="33dp"
-                                    android:layout_height="33dp" />
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_6_violet"/>
 
                                 <ImageView
                                     android:id="@+id/ligne5bleuCase4"
-                                    android:layout_width="33dp"
-                                    android:layout_height="33dp" />
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/tres_fute_bonus_plus1"/>
 
                                 <ImageView
                                     android:id="@+id/ligne5bleuCase5"
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:layout_marginStart="5dp" />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="33dp" />
                             </TableRow>
 
                         </TableLayout>
@@ -461,7 +475,7 @@
                             android:id="@+id/tableVert"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            android:background="@drawable/tres_fute_carre_vert"
+                            android:background="@drawable/tres_fute_carre_vert2"
                             android:outlineSpotShadowColor="@color/vert">
 
                             <TableRow
@@ -557,7 +571,7 @@
                             android:id="@+id/tableOrange"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/tres_fute_carre_orange"
+                            android:background="@drawable/tres_fute_carre_orange2"
                             android:outlineSpotShadowColor="@color/orange">
 
                             <TableRow
@@ -653,7 +667,7 @@
                             android:id="@+id/tableViolet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/tres_fute_carre_violet"
+                            android:background="@drawable/tres_fute_carre_violet2"
                             android:outlineSpotShadowColor="@color/violet">
 
                             <TableRow
@@ -1258,69 +1272,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".33"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:id="@+id/texte_undo"
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textSize="10sp"
-                        android:textColor="@color/blanc"
-                        android:textAlignment="center"
-                        android:text="@string/annuler"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight=".33"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:id="@+id/texte_raz"
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textSize="10sp"
-                        android:textColor="@color/blanc"
-                        android:textAlignment="center"
-                        android:text="@string/raz"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight=".33"
-                    android:textAlignment="center">
-
-                    <TextView
-                        android:id="@+id/texte_exit"
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textSize="10sp"
-                        android:textColor="@color/blanc"
-                        android:textAlignment="center"
-                        android:text="@string/quitter"/>
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -1335,7 +1288,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:src="@color/blanc"/>
+                        android:src="@drawable/tres_fute_passer_tour"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -1351,7 +1304,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:src="@color/blanc"/>
+                        android:src="@drawable/tres_fute_passer_tour"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -1367,7 +1320,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:src="@color/blanc"/>
+                        android:src="@drawable/tres_fute_quitter"/>
                 </RelativeLayout>
             </LinearLayout>
 

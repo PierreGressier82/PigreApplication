@@ -737,7 +737,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                         affiche_tour_suivant(++tour);
                     }
                     if (tour == 7)
-                        Toast.makeText(this, "Partie terminé - Score " + mscoreTotal.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Partie terminé - " + mscoreTotal.getText(), Toast.LENGTH_SHORT).show();
                     else {
                         lance_des();
                         desLances = true;
