@@ -35,14 +35,9 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     //public static int[] tableauVert = {-1,1,2,3,4,5,1,2,3,4,5,6};
     //public static int[] tableauOrange = {-1,0,0,0,0,0,0,0,0,0,0,0};
     //public static int[] tableauViolet = {-1,0,0,0,0,0,0,0,0,0,0,0};
-
     //private static int[] tableauScoreColonneJaune = {10,14,16,20};
     //private static int[] tableauScoreColonneBleu = {0,1,2,4,7,11,16,22,29,37,46,56};
     //private static int[] tableauScoreColonneVert = {0,1,3,6,10,15,21,28,36,45,55,66};
-    //private static final int BONUS_DE=7;
-    //private static final int BONUS_REJOUE=8;
-    //private static final int BONUS_RENARD=9;
-    //private static final int BONUS_LIBRE=10; // Bonus qui permet de choisir la case de son choix
 
     // Tableaux qui permettent d'enregistrer l'état des cases par couleur
     private int[][] tableauClickJaune = {{3, 6, 5, 0}, {2, 1, 0, 5}, {1, 0, 2, 4}, {0, 3, 4, 6}};
@@ -127,6 +122,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     private boolean desLances = false;
     private boolean dePlateauAChoisir = false;
     private boolean caseAChoisir = false;
+    private boolean caseAChoisirBonusTour4 = false;
 
     @Override
     protected void onDestroy() {
@@ -528,47 +524,71 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        System.out.println("onClick " + v.getClass().toString());
         if (v.getClass().toString().endsWith("ImageViewTresFute")) {
             int colonne;
+            int couleur;
 
             ImageViewTresFute imageClick = findViewById(v.getId());
             colonne = imageClick.getColonne();
+            couleur = imageClick.getCouleur();
 
-            switch (imageClick.getCouleur()) {
+            // Gestion du clic
+            switch (couleur) {
                 case JAUNE:
                     imageClick.onClick(0);
                     tableauClickJaune[imageClick.getLigne()][colonne] = imageClick.getValeur();
-                    active_bonus_jaune(imageClick.getLigne(), colonne);
                     break;
                 case BLEU:
                     imageClick.onClick(0);
                     tableauClickBleu[imageClick.getLigne()][colonne] = imageClick.getValeur();
-                    active_bonus_bleu(imageClick.getLigne(), colonne);
                     break;
                 case VERT:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickVert[colonne] = imageClick.getValeur();
-                    active_bonus_vert(colonne);
                     break;
                 case ORANGE:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickOrange[colonne] = imageClick.getValeur();
-                    active_bonus_orange(colonne);
                     break;
                 case VIOLET:
                     imageClick.onClick(ValeurDes[BLANC]);
                     tableauClickViolet[colonne] = imageClick.getValeur();
+                    break;
+            }
+
+            // Desactivation du clic
+            stop_click();
+            caseAChoisir = false;
+            caseAChoisirBonusTour4 = false;
+
+            // Gestion des bonus
+            switch (couleur) {
+                case JAUNE:
+                    active_bonus_jaune(imageClick.getLigne(), colonne);
+                    break;
+                case BLEU:
+                    active_bonus_bleu(imageClick.getLigne(), colonne);
+                    break;
+                case VERT:
+                    active_bonus_vert(colonne);
+                    break;
+                case ORANGE:
+                    active_bonus_orange(colonne);
+                    break;
+                case VIOLET:
                     active_bonus_violet(colonne);
                     break;
             }
-            stop_click();
-            caseAChoisir = false;
+
         }
 
         // Choix d'une dé
         if (v.getClass().toString().endsWith("TextView") && v.getTag().toString().startsWith("De")) {
             if (!desLances)
                 Toast.makeText(this, "Il faut relancer les dés !", Toast.LENGTH_SHORT).show();
+            if (caseAChoisirBonusTour4)
+                Toast.makeText(this, "Utilise en premier le bonus !", Toast.LENGTH_SHORT).show();
             else {
                 boolean deOK = false;
                 switch (v.getTag().toString()) {
@@ -744,7 +764,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void affiche_tour_suivant(int manche) {
-        System.out.println("affiche_manche_suivante : " + manche);
+        System.out.println("affiche_tour_suivant : " + manche);
         switch (manche) {
             case 2:
                 mTour2.setVisibility(View.VISIBLE);
@@ -764,6 +784,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
                 active_case_verte();
                 active_case_orange();
                 active_case_violette();
+                caseAChoisirBonusTour4=true;
                 break;
             case 5:
                 mTour5.setVisibility(View.VISIBLE);
@@ -849,7 +870,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void lance_des() {
-        System.out.println("DEBUT LANCE_DES");
+        System.out.println("lance_des");
 
         if (DeActifs[BLANC] == 1) {
             ValeurDes[BLANC] = lance_de();
@@ -875,8 +896,6 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
             ValeurDes[VIOLET] = lance_de();
             mDeViolet.setText(String.valueOf(ValeurDes[VIOLET]));
         }
-
-        System.out.println("FIN LANCE_DES");
     }
 
     private int lance_de() {
@@ -884,12 +903,13 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         // génération d'un entier >= 1 et <= 6
         nbAleatoire = (int) (Math.random() * 6) + 1;
 
-        System.out.println("Resulat DE : " + nbAleatoire);
+        //System.out.println("Resulat DE : " + nbAleatoire);
 
         return nbAleatoire;
     }
 
     private void desactive_de(int couleur) {
+        System.out.println("desactive_de");
         DeActifs[couleur] = 0;
 
         masque_de(couleur);
@@ -919,6 +939,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void masque_de(int couleur) {
+        System.out.println("masque_de");
         switch (couleur) {
             case JAUNE:
                 mDeJaune.setVisibility(View.INVISIBLE);
@@ -942,6 +963,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void stop_click() {
+        System.out.println("stop_click");
         for (int i = 1; i < CasesJaunes.length; i++)
             for (int j = 1; j < CasesJaunes[i].length; j++) {
                 CasesJaunes[i][j].setClickable(false);
@@ -957,6 +979,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void affiche_de_plateau(int couleur) {
+        System.out.println("affiche_de_plateau");
         switch (couleur) {
             case JAUNE:
                 mDeJaunePlateau.setText(String.valueOf(ValeurDes[couleur]));
@@ -981,6 +1004,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void retire_des_inferieurs_vers_plateau(int valeurDe) {
+        System.out.println("retire_des_inferieurs_vers_plateau");
         for (int i = 0; i < DeActifs.length; i++) {
             if (DeActifs[i] == 1 && ValeurDes[i] < valeurDe) {
                 deplace_de(i);
@@ -991,11 +1015,13 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void deplace_de(int couleur) {
+        System.out.println("deplace_de");
         masque_de(couleur);
         affiche_de_plateau(couleur);
     }
 
     private void active_tous_des() {
+        System.out.println("active_tous_des");
         Arrays.fill(DeActifs, 1);
         // Sauvegarde la couleur du lancé
         Arrays.fill(CouleurLanceDe, 0);
@@ -1099,6 +1125,7 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
     }
 
     private boolean utilise_de_jaune(int valeur) {
+        System.out.println("utilise_de_jaune");
         boolean retour = false;
         int nbCases = 0;
         // Rendre clicable les cases jaunes possibles
@@ -1227,7 +1254,6 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, "Ce dé ne convient pas", Toast.LENGTH_SHORT).show();
     }
 
-    // Utilise le bonus relance les dés
     private boolean utilise_bonus_rejoue() {
         boolean retour = false;
         int index;
@@ -1284,7 +1310,6 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // Utilise le bonus relance les dés
     private boolean utilise_bonus_de_supplementaire() {
         boolean retour = false;
         int index;
@@ -1342,13 +1367,13 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
     private void de_supplementaire() {
         dePlateauAChoisir=true;
     }
 
     // On ne verifie que la ligne et la colonne qui a été changée (+ diagonale)
     private void active_bonus_jaune(int ligne, int colonne) {
+        System.out.println("active_bonus_jaune");
         boolean isOK=true;
 
         // Diagonale
@@ -1389,8 +1414,9 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // On ne verifie que la ligne et la colonne qui a été changée (+ diagonale)
+    // On ne verifie que la ligne et la colonne qui a été changée
     private void active_bonus_bleu(int ligne, int colonne) {
+        System.out.println("active_bonus_bleu");
         boolean isOK=true;
 
         // On change la valeur de la première case pour faciliter la recherche
@@ -1511,22 +1537,25 @@ public class TresFuteSolo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void active_cases_bleues() {
-        for (int i = 1; i < CasesBleues.length; i++) {
-            if (CasesBleues[i].getValeur() != 0) {
-                CasesBleues[i].setClickable(true);
-                caseAChoisir=true;
-            }
-        }
-    }
-
     private void active_cases_jaunes() {
+        // Active toutes les cases jaunes non cochées
         for (int i = 1; i < CasesJaunes.length; i++)
             for (int j = 1; j < CasesJaunes[i].length; j++)
                 if (CasesJaunes[i][j].getValeur() != 0) {
                     CasesJaunes[i][j].setClickable(true);
                     caseAChoisir=true;
                 }
+    }
+
+    private void active_cases_bleues() {
+        System.out.println("active_cases_bleues");
+        // Active toutes les cases bleues non cochées
+        for (int i = 1; i < CasesBleues.length; i++) {
+            if (CasesBleues[i].getValeur() != 0) {
+                CasesBleues[i].setClickable(true);
+                caseAChoisir=true;
+            }
+        }
     }
 
     private void active_case_verte() {
