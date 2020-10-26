@@ -8,9 +8,6 @@
         android:label="Pigre Application"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controleur.TresFute"/>
-        <activity android:name=".controleur.TresFuteSolo" />
-        <activity android:name=".controleur.TresFuteScore" />
         <activity
             android:name=".controleur.JeuxDeSocieteActivity"
             android:label="@string/title_activity_jeux_de_societe"

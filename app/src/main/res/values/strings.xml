@@ -28,4 +28,5 @@
     <string name="annuler">Annuler</string>
     <string name="lancer_les_d_s">Lancer les dés</string>
     <string name="passe_tour">Passer mon tour</string>
+    <string name="classement">Classement</string>
 </resources>

@@ -18,16 +18,9 @@ import static java.lang.System.out;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mGreetingText;
-    private Button mQuizzButton;
-    private Button mComptesButton;
-    private Button mGameButton;
-    private Button mTodoButton;
-    private Utilisateur mUtilisateur;
     public static final int QUIZZ_ACTIVITY_REQUEST_CODE=13;
     public static final int GAME_ACTIVITY_REQUEST_CODE=14;
     public static final int TODO_REQUEST_CODE=1414;
-    private SharedPreferences mPreferences;
     public static final String PREF_KEY_SCORE = "PREF_KEY_SCORE";
     public static final String PREF_KEY_PRENOM = "PREF_KEY_PRENOM";
 
@@ -45,16 +38,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Passe l'aplli en plein écran et cache la barre de status.
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        mUtilisateur = new Utilisateur();
-        mPreferences = getPreferences(MODE_PRIVATE);
+        Utilisateur utilisateur = new Utilisateur();
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
 
-        mGreetingText = findViewById(R.id.activity_main_greeting_txt);
-        mQuizzButton = findViewById(R.id.activity_main_quizz_button);
-        mComptesButton = findViewById(R.id.activity_main_comptes_button);
-        mGameButton = findViewById(R.id.activity_main_games_button);
-        mTodoButton = findViewById(R.id.activity_todo_button);
+        TextView greetingText = findViewById(R.id.activity_main_greeting_txt);
+        Button quizzButton = findViewById(R.id.activity_main_quizz_button);
+        Button comptesButton = findViewById(R.id.activity_main_comptes_button);
+        Button gameButton = findViewById(R.id.activity_main_games_button);
+        Button todoButton = findViewById(R.id.activity_todo_button);
 
-        mQuizzButton.setOnClickListener(new View.OnClickListener() {
+        quizzButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Utilisateur clique sur le bouton
@@ -63,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mGameButton.setOnClickListener(new View.OnClickListener() {
+        gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Utilisateur clique sur le bouton
@@ -72,18 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        mTodoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Utilisateur clique sur le bouton
-                Intent todoActivity = new Intent(MainActivity.this, TresFute.class);
-                startActivityForResult(todoActivity, TODO_REQUEST_CODE);
-            }
-        });
 
         // Use the activity listener for all this buttons.
-        mComptesButton.setOnClickListener(this);
-        //mTodoButton.setOnClickListener(this);
+        todoButton.setOnClickListener(this);
+        comptesButton.setOnClickListener(this);
     }
 
     @Override

@@ -7,16 +7,13 @@
     android:orientation="vertical"
     tools:context=".controleur.JeuxDeSocieteActivity">
 
-    <RelativeLayout
-        android:id="@+id/relative_layout_image_titre"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.25">
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:id="@+id/relative_layout_image_titre"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -64,7 +61,9 @@
                         <ImageView
                             android:id="@+id/image_nombre_joueurs"
                             android:layout_width="20dp"
-                            android:layout_height="20dp" />
+                            android:layout_height="20dp"
+                            android:src="@drawable/jeux_icone_nb_pers"/>
+
                         <TextView
                             android:id="@+id/text_nombre_joueur"
                             android:layout_width="wrap_content"
@@ -86,7 +85,8 @@
                         <ImageView
                             android:id="@+id/image_age_joueur"
                             android:layout_width="20dp"
-                            android:layout_height="20dp"/>
+                            android:layout_height="20dp"
+                            android:src="@drawable/jeux_icone_age"/>
                         <TextView
                             android:id="@+id/text_age_joueur"
                             android:layout_width="wrap_content"
@@ -107,7 +107,8 @@
                         <ImageView
                             android:id="@+id/image_duree"
                             android:layout_width="20dp"
-                            android:layout_height="20dp" />
+                            android:layout_height="20dp"
+                            android:src="@drawable/jeux_icone_duree"/>
                         <TextView
                             android:id="@+id/text_duree"
                             android:layout_width="wrap_content"
@@ -128,7 +129,8 @@
                         <ImageView
                             android:id="@+id/image_regle_PDF"
                             android:layout_width="20dp"
-                            android:layout_height="20dp" />
+                            android:layout_height="20dp"
+                            android:src="@drawable/jeux_icone_pdf"/>
                         <TextView
                             android:id="@+id/text_regles_pdf"
                             android:layout_width="wrap_content"
@@ -142,54 +144,42 @@
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relative_layout_video"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.25">
 
         <ImageView
             android:id="@+id/video_regle_ludovox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:padding="10dp"
+            android:src="@drawable/jeux_ludovox"/>
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5">
+        android:layout_weight="0.5"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/text_titre_regles_simplifiees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/regles_simplifiees"
+            android:textAlignment="textStart"
+            android:textColor="#AAAAAA"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_detail_regles_simplifiees"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_titre_regles_simplifiees"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/regles_simplifiees"
-                android:textAlignment="textStart"
-                android:textColor="#AAAAAA"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_detail_regles_simplifiees"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/detail_des_regles_simplifiees"
-                android:textAlignment="textStart"
-                android:textColor="#AAAAAA"
-                android:textSize="15dp" />
-        </LinearLayout>
-    </RelativeLayout>
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/detail_des_regles_simplifiees"
+            android:textAlignment="textStart"
+            android:textColor="#AAAAAA"
+            android:textSize="15sp" />
+    </LinearLayout>
 </LinearLayout>
